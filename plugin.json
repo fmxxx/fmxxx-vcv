@@ -1,0 +1,16 @@
+{
+  "slug": "MyPlugin",
+  "name": "base",
+  "version": "0.0.0",
+  "license": "AGPL-3.0-or-later",
+  "brand": "fmxxx",
+  "author": "fmxxx",
+  "authorEmail": "",
+  "authorUrl": "",
+  "pluginUrl": "",
+  "manualUrl": "",
+  "sourceUrl": "",
+  "donateUrl": "",
+  "changelogUrl": "",
+  "modules": []
+}
