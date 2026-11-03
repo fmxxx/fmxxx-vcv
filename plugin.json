@@ -1,7 +1,7 @@
 {
   "slug": "MyPlugin",
   "name": "base",
-  "version": "0.0.0",
+  "version": "2.0.0",
   "license": "AGPL-3.0-or-later",
   "brand": "fmxxx",
   "author": "fmxxx",
@@ -12,5 +12,16 @@
   "sourceUrl": "",
   "donateUrl": "",
   "changelogUrl": "",
-  "modules": []
+  "modules": [
+    {
+      "slug": "tuner",
+      "name": "Tuner",
+      "description": "Tune V/Oct to Semis, Cents and Ratio",
+      "tags": [
+        "utility",
+        "tuner",
+        "polyphonic"
+      ]
+    }
+  ]
 }
