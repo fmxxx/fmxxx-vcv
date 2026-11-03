@@ -1,26 +1,18 @@
 # Modules
 
 ## Utilities
-
-+ 8 Attenuverters [Poly]
-+ 4 Attenuverters + Offset [Poly]
-+ 8 Constants [Mono]
-+ Tuner (Octave + Semitone [-12, 12] + Cents)  [Poly] 
-+ Tuner (Semitone [-48, 48] + Cents) [Poly]
-+ Tuner (Ratio + Fine) (Continuous toggle) [Poly]
-+ Tuner (Numerator / Denominator) [Poly]
-+ Per sample math (+, -, *, /, pow, mod) [Poly]
++ Tuner (Semis + Cents + Ratio) (Continuous toggle) [Poly]
++ TunerFraction (Numerator / Denominator) [Poly]
++ Mathematical (+, -, *, /, pow, mod) [Poly]
 
 ## Oscillators 
 
-+ Wavetable + Phase Distortion [Poly]
++ WT (Phase Distortion and Mod) [Poly]
 + RipplerX port (All models loaded into memory) [Poly]
 
 ## Recorders
 
-+ Buffer (Record and read phase input) [Mono]
-+ Buffer++ [Mono]
-+ Mangler (Buffer with phase curves, mirror, change waveform, etc) [Mono]
++ Circular buffer [Mono]
 
 ## Controllers
 

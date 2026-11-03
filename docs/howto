@@ -1,0 +1,5 @@
+1. Create the svg in res-src/. Add all the inputs, outputs, paramters and text as circles in a "components" layer. Only the center matters.
+2. Use the scripts/convert_svgs.sh to convert text into paths and hide the components layer
+3. Use $RACK_DIR/helper.py createmodule name res/name.svg src/name.cpp to generate the base cpp file
+4. Add entry points on plugin.hpp and .cpp
+5. When the module is ready, run make && make install to build and copy it to the vcv folder

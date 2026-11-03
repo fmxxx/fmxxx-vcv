@@ -31,6 +31,8 @@
 *.out
 *.app
 
+.vscode/
+
 dist/
 benchmark
 testmain
@@ -42,5 +44,4 @@ scatter
 scatter.*
 lldb.cmd
 !test/*
-doc/module_screenshots/
-doc/todo/
+docs/private/

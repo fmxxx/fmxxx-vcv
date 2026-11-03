@@ -2,7 +2,7 @@
 RACK_DIR ?= ../..
 
 # FLAGS will be passed to both the C and C++ compiler
-FLAGS +=
+FLAGS += -I$(RACK_DIR)/include -I$(RACK_DIR)/dep/include
 CFLAGS +=
 CXXFLAGS +=
 
@@ -21,3 +21,4 @@ DISTRIBUTABLES += $(wildcard presets)
 
 # Include the Rack plugin Makefile framework
 include $(RACK_DIR)/plugin.mk
+
