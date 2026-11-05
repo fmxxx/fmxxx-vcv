@@ -54,7 +54,11 @@ inline float_4 mirror(float_4 phase, float_4 dist) {
 
 inline float_4 phasor(float_4 phase, float_4 freq, float_4 sampleRate) {
   phase += freq / sampleRate;
-  phase = simd::ifelse(phase >= 1.0f, 0.0f, phase);
+
+  phase = simd::ifelse(phase >= 1.0f, phase - 1.0f, phase);
+
+  // Prevent negative frequencies or edge cases from breaking it
+  phase = simd::ifelse(phase < 0.0f, phase + 1.0f, phase);
 
   return phase;
 }
