@@ -30,8 +30,8 @@ inline float_4 rampToTriangle(float_4 phase, float_4 dist) {
 //  Adapted from ValleyAudio`s "bend" phase distortion
 //  Created by Dale Johnson on 02/02/2018.
 //  Copyright © 2018 Dale Johnson. All rights reserved.
-inline float_4 skew(float_4 phase, float_4 dist) {
-  const float_4 x = (dist * 0.5) + 0.5;
+inline float_4 skew(float_4 phase, float_4 dist, float_4 distAmt) {
+  const float_4 x = simd::clamp(dist + distAmt, 0.f, 1.f);
 
   float_4 denom;
 
