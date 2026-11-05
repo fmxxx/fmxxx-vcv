@@ -31,6 +31,16 @@
         "oscillator",
         "polyphonic"
       ]
+    },
+    {
+      "slug": "phasor",
+      "name": "Phasor",
+      "description": "Generates a phase ramp based on a V/Oct signal. Include FM(PM)",
+      "tags": [
+        "phase",
+        "oscillator",
+        "polyphonic"
+      ]
     }
   ]
 }

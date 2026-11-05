@@ -52,6 +52,11 @@ inline float_4 mirror(float_4 phase, float_4 dist) {
   return phase;
 }
 
+inline float_4 wrap(float_4 phase) {
+  phase -= simd::floor(phase);
+  return phase;
+}
+
 inline float_4 phasor(float_4 phase, float_4 freq, float_4 sampleRate) {
   phase += freq / sampleRate;
 
