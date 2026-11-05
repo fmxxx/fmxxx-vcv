@@ -117,7 +117,7 @@ struct Wt : Module {
 
         // Phase distortion
         p = rampToTriangle(p, dist1);
-        p = skew(p, dist2);
+        p = skew(p, 1, dist2);
 
         // Phase modulation
         float_4 fmSrc = inputs[FM_INPUT].getVoltageSimd<float_4>(c);
@@ -138,10 +138,10 @@ struct WtWidget : ModuleWidget {
     setModule(module);
     setPanel(createPanel(asset::plugin(pluginInstance, "res/wt.svg")));
 
-    addChild(createWidget<ScrewSilver>(Vec(RACK_GRID_WIDTH, 0)));
-    addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, 0)));
-    addChild(createWidget<ScrewSilver>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
-    addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
+    addChild(createWidget<ScrewBlack>(Vec(RACK_GRID_WIDTH, 0)));
+    addChild(createWidget<ScrewBlack>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, 0)));
+    addChild(createWidget<ScrewBlack>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
+    addChild(createWidget<ScrewBlack>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 
     addParam(createParam<RoundBlackKnob>(mm2px(Vec(10.16, 10.16)), module, Wt::SMOOTH_PARAM));
     addParam(createParam<RoundBlackKnob>(mm2px(Vec(35.56, 10.16)), module, Wt::VOICES_PARAM));
@@ -159,17 +159,17 @@ struct WtWidget : ModuleWidget {
     addParam(createParamCentered<RoundBlackKnob>(mm2px(Vec(30.48, 90.42)), module, Wt::DETUNE_ATT_PARAM));
     addParam(createParamCentered<RoundBlackKnob>(mm2px(Vec(42.545, 90.42)), module, Wt::DIST1_ATT_PARAM));
 
-    addInput(createInputCentered<PJ301MPort>(mm2px(Vec(6.35, 104.14)), module, Wt::WAVE_INPUT));
-    addInput(createInputCentered<PJ301MPort>(mm2px(Vec(18.415, 104.14)), module, Wt::FM_AMT_INPUT));
-    addInput(createInputCentered<PJ301MPort>(mm2px(Vec(30.48, 104.14)), module, Wt::DETUNE_INPUT));
-    addInput(createInputCentered<PJ301MPort>(mm2px(Vec(42.545, 104.14)), module, Wt::DIST1_INPUT));
-    addInput(createInputCentered<PJ301MPort>(mm2px(Vec(54.61, 104.14)), module, Wt::DIST2_INPUT));
-    addInput(createInputCentered<PJ301MPort>(mm2px(Vec(6.35, 116.84)), module, Wt::VOCT_INPUT));
-    addInput(createInputCentered<PJ301MPort>(mm2px(Vec(30.48, 116.84)), module, Wt::RESET_INPUT));
-    addInput(createInputCentered<PJ301MPort>(mm2px(Vec(18.415, 116.84)), module, Wt::FM_INPUT));
+    addInput(createInputCentered<DarkPJ301MPort>(mm2px(Vec(6.35, 104.14)), module, Wt::WAVE_INPUT));
+    addInput(createInputCentered<DarkPJ301MPort>(mm2px(Vec(18.415, 104.14)), module, Wt::FM_AMT_INPUT));
+    addInput(createInputCentered<DarkPJ301MPort>(mm2px(Vec(30.48, 104.14)), module, Wt::DETUNE_INPUT));
+    addInput(createInputCentered<DarkPJ301MPort>(mm2px(Vec(42.545, 104.14)), module, Wt::DIST1_INPUT));
+    addInput(createInputCentered<DarkPJ301MPort>(mm2px(Vec(54.61, 104.14)), module, Wt::DIST2_INPUT));
+    addInput(createInputCentered<DarkPJ301MPort>(mm2px(Vec(6.35, 116.84)), module, Wt::VOCT_INPUT));
+    addInput(createInputCentered<DarkPJ301MPort>(mm2px(Vec(30.48, 116.84)), module, Wt::RESET_INPUT));
+    addInput(createInputCentered<DarkPJ301MPort>(mm2px(Vec(18.415, 116.84)), module, Wt::FM_INPUT));
 
-    addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(42.545, 116.84)), module, Wt::L_OUTPUT));
-    addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(54.61, 116.84)), module, Wt::R_OUTPUT));
+    addOutput(createOutputCentered<DarkPJ301MPort>(mm2px(Vec(42.545, 116.84)), module, Wt::L_OUTPUT));
+    addOutput(createOutputCentered<DarkPJ301MPort>(mm2px(Vec(54.61, 116.84)), module, Wt::R_OUTPUT));
 
     // mm2px(Vec(50.8, 30.48))
     addChild(createWidget<Widget>(mm2px(Vec(5.08, 10.16))));

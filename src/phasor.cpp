@@ -105,21 +105,21 @@ struct PhasorWidget : ModuleWidget {
     setModule(module);
     setPanel(createPanel(asset::plugin(pluginInstance, "res/phasor.svg")));
 
-    addChild(createWidget<ScrewSilver>(Vec(RACK_GRID_WIDTH, 0)));
-    addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, 0)));
-    addChild(createWidget<ScrewSilver>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
-    addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
+    addChild(createWidget<ScrewBlack>(Vec(RACK_GRID_WIDTH, 0)));
+    addChild(createWidget<ScrewBlack>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, 0)));
+    addChild(createWidget<ScrewBlack>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
+    addChild(createWidget<ScrewBlack>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 
     addParam(createParamCentered<RoundBlackKnob>(mm2px(Vec(7.62, 19.05)), module, Phasor::FREQ_PARAM));
     addParam(createParamCentered<RoundBlackKnob>(mm2px(Vec(7.62, 33.02)), module, Phasor::PM_AMT_PARAM));
     addParam(createParamCentered<RoundBlackKnob>(mm2px(Vec(7.62, 48.26)), module, Phasor::PD_AMT_PARAM));
 
-    addInput(createInputCentered<PJ301MPort>(mm2px(Vec(7.62, 64.77)), module, Phasor::PM_INPUT));
-    addInput(createInputCentered<PJ301MPort>(mm2px(Vec(7.62, 77.47)), module, Phasor::PD_INPUT));
-    addInput(createInputCentered<PJ301MPort>(mm2px(Vec(7.62, 90.17)), module, Phasor::RESET_INPUT));
-    addInput(createInputCentered<PJ301MPort>(mm2px(Vec(7.62, 102.87)), module, Phasor::VOCT_INPUT));
+    addInput(createInputCentered<DarkPJ301MPort>(mm2px(Vec(7.62, 64.77)), module, Phasor::PM_INPUT));
+    addInput(createInputCentered<DarkPJ301MPort>(mm2px(Vec(7.62, 77.47)), module, Phasor::PD_INPUT));
+    addInput(createInputCentered<DarkPJ301MPort>(mm2px(Vec(7.62, 90.17)), module, Phasor::RESET_INPUT));
+    addInput(createInputCentered<DarkPJ301MPort>(mm2px(Vec(7.62, 102.87)), module, Phasor::VOCT_INPUT));
 
-    addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(7.62, 116.84)), module, Phasor::PHASE_OUTPUT));
+    addOutput(createOutputCentered<DarkPJ301MPort>(mm2px(Vec(7.62, 116.84)), module, Phasor::PHASE_OUTPUT));
   }
 };
 
