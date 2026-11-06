@@ -11,12 +11,12 @@ struct Phasor : Module {
   enum ParamId {
     FREQ_PARAM,
     PM_AMT_PARAM,
-    PD_AMT_PARAM,
+    SKEW_AMT_PARAM,
     PARAMS_LEN
   };
   enum InputId {
     PM_INPUT,
-    PD_INPUT,
+    SKEW_INPUT,
     RESET_INPUT,
     VOCT_INPUT,
     INPUTS_LEN
@@ -33,9 +33,9 @@ struct Phasor : Module {
     config(PARAMS_LEN, INPUTS_LEN, OUTPUTS_LEN, LIGHTS_LEN);
     configParam(FREQ_PARAM, -5.f, 5.f, 0.f, "Frequency", " Hz", 2.f, dsp::FREQ_C4);
     configParam(PM_AMT_PARAM, 0.f, 1.f, 1.f, "PM Amount", "%", 0.f, 100.f);
-    configParam(PD_AMT_PARAM, -0.5f, 0.5f, 0.f, "PD Amount", "%", 0.f, 200.f);
+    configParam(SKEW_AMT_PARAM, -0.5f, 0.5f, 0.f, "Skew Amount", "%", 0.f, 200.f);
     configInput(PM_INPUT, "Phase Modulation (x, Unipolar)");
-    configInput(PD_INPUT, "Phase Distortion (+, Bipolar)");
+    configInput(SKEW_INPUT, "Skew (+, Bipolar)");
     configInput(RESET_INPUT, "Reset Trigger (≥ 1V)");
     configInput(VOCT_INPUT, "V/Oct");
     configOutput(PHASE_OUTPUT, "Phase");
@@ -74,7 +74,7 @@ struct Phasor : Module {
       float freqBase = dsp::FREQ_C4 * std::powf(2.f, params[FREQ_PARAM].getValue());
 
       float pmAmt = std::powf(params[PM_AMT_PARAM].getValue(), 2);
-      float pdAmt = params[PD_AMT_PARAM].getValue();
+      float skewAmt = params[SKEW_AMT_PARAM].getValue();
 
       // Per Channel
       for (int c = 0; c < channels; c += 4) {
@@ -91,8 +91,8 @@ struct Phasor : Module {
         p = wrap(p);
 
         // Phase distortion
-        float_4 pdSrc = inputs[PD_INPUT].getPolyVoltageSimd<float_4>(c) * 0.1f;
-        p = skew(p, pdSrc, pdAmt + 0.5f);
+        float_4 skewSrc = inputs[SKEW_INPUT].getPolyVoltageSimd<float_4>(c) * 0.1f;
+        p = skew(p, skewSrc, skewAmt + 0.5f);
 
         outputs[PHASE_OUTPUT].setVoltageSimd(simd::clamp(p * 10.f, -12.f, 12.f), c);
       }
@@ -112,10 +112,10 @@ struct PhasorWidget : ModuleWidget {
 
     addParam(createParamCentered<RoundBlackKnob>(mm2px(Vec(7.62, 19.05)), module, Phasor::FREQ_PARAM));
     addParam(createParamCentered<RoundBlackKnob>(mm2px(Vec(7.62, 33.02)), module, Phasor::PM_AMT_PARAM));
-    addParam(createParamCentered<RoundBlackKnob>(mm2px(Vec(7.62, 48.26)), module, Phasor::PD_AMT_PARAM));
+    addParam(createParamCentered<RoundBlackKnob>(mm2px(Vec(7.62, 48.26)), module, Phasor::SKEW_AMT_PARAM));
 
     addInput(createInputCentered<DarkPJ301MPort>(mm2px(Vec(7.62, 64.77)), module, Phasor::PM_INPUT));
-    addInput(createInputCentered<DarkPJ301MPort>(mm2px(Vec(7.62, 77.47)), module, Phasor::PD_INPUT));
+    addInput(createInputCentered<DarkPJ301MPort>(mm2px(Vec(7.62, 77.47)), module, Phasor::SKEW_INPUT));
     addInput(createInputCentered<DarkPJ301MPort>(mm2px(Vec(7.62, 90.17)), module, Phasor::RESET_INPUT));
     addInput(createInputCentered<DarkPJ301MPort>(mm2px(Vec(7.62, 102.87)), module, Phasor::VOCT_INPUT));
 

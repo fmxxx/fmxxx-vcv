@@ -50,6 +50,15 @@
         "oscillator",
         "polyphonic"
       ]
+    },
+    {
+      "slug": "phase_dist",
+      "name": "Phase Distortion",
+      "description": "Takes a phase as input and applies different distortion algorithms to it",
+      "tags": [
+        "phase",
+        "polyphonic"
+      ]
     }
   ]
 }
