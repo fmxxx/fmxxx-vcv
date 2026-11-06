@@ -9,6 +9,7 @@ void init(Plugin* p) {
   p->addModel(modelTuner);
   p->addModel(modelWt);
   p->addModel(modelPhasor);
+  p->addModel(modelPhase_wt);
 
   // Any other plugin initialization may go here.
   // As an alternative, consider lazy-loading assets and lookup tables when your module is created to reduce startup times of Rack.

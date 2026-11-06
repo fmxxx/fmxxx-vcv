@@ -41,6 +41,15 @@
         "oscillator",
         "polyphonic"
       ]
+    },
+    {
+      "slug": "phase_wt",
+      "name": "Phase_wt",
+      "description": "Phase driven wavetable oscillator",
+      "tags": [
+        "oscillator",
+        "polyphonic"
+      ]
     }
   ]
 }

@@ -9,3 +9,4 @@ extern Plugin* pluginInstance;
 extern Model* modelTuner;
 extern Model* modelWt;
 extern Model* modelPhasor;
+extern Model* modelPhase_wt;
