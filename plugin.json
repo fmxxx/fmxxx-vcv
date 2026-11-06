@@ -22,6 +22,43 @@
         "tuner",
         "polyphonic"
       ]
+    },
+    {
+      "slug": "wt",
+      "name": "wt",
+      "description": "Wavetable with phase distortion and modulation.",
+      "tags": [
+        "oscillator",
+        "polyphonic"
+      ]
+    },
+    {
+      "slug": "phasor",
+      "name": "Phasor",
+      "description": "Generates a phase ramp based on a V/Oct signal. Include FM(PM)",
+      "tags": [
+        "phase",
+        "oscillator",
+        "polyphonic"
+      ]
+    },
+    {
+      "slug": "phase_wt",
+      "name": "Phase_wt",
+      "description": "Phase driven wavetable oscillator",
+      "tags": [
+        "oscillator",
+        "polyphonic"
+      ]
+    },
+    {
+      "slug": "phase_dist",
+      "name": "Phase Distortion",
+      "description": "Takes a phase as input and applies different distortion algorithms to it",
+      "tags": [
+        "phase",
+        "polyphonic"
+      ]
     }
   ]
 }

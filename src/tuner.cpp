@@ -100,21 +100,21 @@ struct TunerWidget : ModuleWidget {
     setModule(module);
     setPanel(createPanel(asset::plugin(pluginInstance, "res/tuner.svg")));
 
-    addChild(createWidget<ScrewSilver>(Vec(RACK_GRID_WIDTH, 0)));
-    addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, 0)));
-    addChild(createWidget<ScrewSilver>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
-    addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
+    addChild(createWidget<ScrewBlack>(Vec(RACK_GRID_WIDTH, 0)));
+    addChild(createWidget<ScrewBlack>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, 0)));
+    addChild(createWidget<ScrewBlack>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
+    addChild(createWidget<ScrewBlack>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 
     addParam(createParamCentered<RoundBlackKnob>(mm2px(Vec(7.62, 19.05)), module, Tuner::SEMIS_PARAM));
     addParam(createParamCentered<RoundBlackKnob>(mm2px(Vec(7.62, 33.02)), module, Tuner::CENTS_PARAM));
     addParam(createParamCentered<RoundBlackKnob>(mm2px(Vec(7.62, 46.99)), module, Tuner::RATIO_PARAM));
 
-    addInput(createInputCentered<PJ301MPort>(mm2px(Vec(7.62, 64.77)), module, Tuner::VOCT_1_INPUT));
-    addInput(createInputCentered<PJ301MPort>(mm2px(Vec(7.62, 77.47)), module, Tuner::VOCT_2_INPUT));
-    addInput(createInputCentered<PJ301MPort>(mm2px(Vec(7.62, 90.17)), module, Tuner::CENTS_INPUT));
-    addInput(createInputCentered<PJ301MPort>(mm2px(Vec(7.62, 102.87)), module, Tuner::RATIO_INPUT));
+    addInput(createInputCentered<DarkPJ301MPort>(mm2px(Vec(7.62, 64.77)), module, Tuner::VOCT_1_INPUT));
+    addInput(createInputCentered<DarkPJ301MPort>(mm2px(Vec(7.62, 77.47)), module, Tuner::VOCT_2_INPUT));
+    addInput(createInputCentered<DarkPJ301MPort>(mm2px(Vec(7.62, 90.17)), module, Tuner::CENTS_INPUT));
+    addInput(createInputCentered<DarkPJ301MPort>(mm2px(Vec(7.62, 102.87)), module, Tuner::RATIO_INPUT));
 
-    addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(7.62, 116.84)), module, Tuner::VOCT_OUTPUT));
+    addOutput(createOutputCentered<DarkPJ301MPort>(mm2px(Vec(7.62, 116.84)), module, Tuner::VOCT_OUTPUT));
   }
 
   void appendContextMenu(Menu* menu) override {
