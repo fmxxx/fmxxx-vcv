@@ -61,16 +61,26 @@ struct Tuner : Module {
     channels = std::max(inputs[RATIO_INPUT].getChannels(), channels);
     outputs[VOCT_OUTPUT].setChannels(channels);
 
-    float semisVoltage = params[SEMIS_PARAM].getValue() / 12.f;
-    float centsVoltage = params[CENTS_PARAM].getValue() / 1200.f;
+    float semisParamV = params[SEMIS_PARAM].getValue() / 12.f;
+    float centsParamV = params[CENTS_PARAM].getValue() / 1200.f;
     float ratioKnob = params[RATIO_PARAM].getValue();
 
     if (this->isActive()) {
       for (int c = 0; c < channels; c += 4) {
-        float_4 ratio = ratioKnob + inputs[RATIO_INPUT].getPolyVoltageSimd<float_4>(c) * 6.4f;
+        // Semitones + Cents
+        float_4 semiCentsV = inputs[CENTS_INPUT].getPolyVoltageSimd<float_4>(c) / 60.f + semisParamV + centsParamV;
+        semiCentsV = simd::clamp(semiCentsV, -12.f, 12.f);
+
+        // Ratio
+        float_4 ratioIn = inputs[RATIO_INPUT].getPolyVoltageSimd<float_4>(c) * 6.4;
+        ratioIn = snapRatio ? simd::round(ratioIn) : ratioIn;
+        float_4 ratio = ratioKnob + ratioIn;
         ratio = simd::clamp(ratio, 1.f, 32.f);
 
-        float_4 v = inputs[VOCT_1_INPUT].getPolyVoltageSimd<float_4>(c) + inputs[VOCT_2_INPUT].getPolyVoltageSimd<float_4>(c) + inputs[CENTS_INPUT].getPolyVoltageSimd<float_4>(c) / 60.f + semisVoltage + centsVoltage + simd::log2(ratio);
+        // Add them all
+        float_4 v = inputs[VOCT_1_INPUT].getPolyVoltageSimd<float_4>(c) +
+                    inputs[VOCT_2_INPUT].getPolyVoltageSimd<float_4>(c) +
+                    semiCentsV + simd::log2(ratio);
 
         outputs[VOCT_OUTPUT].setVoltageSimd(simd::clamp(v, -12.f, 12.f), c);
       }
