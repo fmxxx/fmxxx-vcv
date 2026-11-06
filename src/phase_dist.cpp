@@ -1,4 +1,9 @@
+#include "dsp/phase.hpp"
 #include "plugin.hpp"
+
+using namespace rack;
+using simd::float_4;
+using PDistFn = float_4 (*)(const float_4, const float_4);
 
 struct Phase_dist : Module {
   enum ParamId {
@@ -23,16 +28,77 @@ struct Phase_dist : Module {
 
   Phase_dist() {
     config(PARAMS_LEN, INPUTS_LEN, OUTPUTS_LEN, LIGHTS_LEN);
-    configParam(PD_PARAM, 0.f, 1.f, 0.f, "");
-    configParam(PD_TYPE_PARAM, 0.f, 1.f, 0.f, "");
-    configParam(PD_ATT_PARAM, 0.f, 1.f, 0.f, "");
-    configInput(PD_INPUT, "");
-    configInput(PD_TYPE_INPUT, "");
-    configInput(PHASE_INPUT, "");
-    configOutput(PHASE_OUTPUT, "");
+
+    configParam(PD_PARAM, -0.5f, 0.5f, 0.f, "Distort Amount", "%", 0.f, 200.f);
+    configSwitch(PD_TYPE_PARAM, 0.f, 10.f, 0.f, "Distortion Type", {"Skew", "RampTri", "RampRev", "Mirror", "", "", "", "", "", "", ""});
+    getParamQuantity(PD_TYPE_PARAM)->snapEnabled = true;
+
+    configParam(PD_ATT_PARAM, -1.f, 1.f, 0.f, "Phase Distortion CV", "%", 0.f, 100.f);
+
+    configInput(PD_INPUT, "Phase Distortion (+, Bipolar)");
+    configInput(PD_TYPE_INPUT, "PD Type (Mono, overrides knob)");
+    configInput(PHASE_INPUT, "Phase [0, 10) V");
+
+    configOutput(PHASE_OUTPUT, "Phase [0, 10) V");
+  }
+
+  int controlRateCounter = 0;
+  const int CONTROL_RATE_INTERVAL = 32;
+
+  static inline const PDistFn pdTable[] = {
+      skew,
+      rampToTriangle,
+      rampReverse,
+      mirror,
+  };
+
+  enum class PDist { Skew,
+                     RampTri,
+                     RampRev,
+                     Mirror };  // Needs to be in the same order as PDistFn
+
+  PDistFn currentPD = skew;
+
+  bool isActive() {
+    return outputs[PHASE_OUTPUT].isConnected();
   }
 
   void process(const ProcessArgs& args) override {
+    int channels = inputs[PHASE_INPUT].getChannels();
+    outputs[PHASE_OUTPUT].setChannels(channels);
+
+    // Get knobs
+    float distKnob = params[PD_PARAM].getValue();
+    float distCVAmt = params[PD_ATT_PARAM].getValue();
+
+    if (this->isActive()) {
+      // Control Rate
+      if (controlRateCounter <= 0) {
+        controlRateCounter = CONTROL_RATE_INTERVAL;
+
+        // Get control rate CVs
+        float typeCV = inputs[PD_TYPE_INPUT].isConnected() ? inputs[PD_TYPE_INPUT].getVoltage(0) : params[PD_TYPE_PARAM].getValue();
+
+        int typeIndex = (int)std::round(typeCV);  // 1V per algorithm
+        typeIndex = clamp(typeIndex, 0, (int)(sizeof(pdTable) / sizeof(pdTable[0])) - 1);
+
+        currentPD = pdTable[typeIndex];
+      }
+      controlRateCounter--;
+
+      // Per sample
+      for (int c = 0; c < channels; c += 4) {
+        float_4 p = inputs[PHASE_INPUT].getPolyVoltageSimd<float_4>(c) * 0.1f;
+
+        float_4 distCV = inputs[PD_INPUT].getPolyVoltageSimd<float_4>(c);
+        float_4 dist = distKnob + distCV * 0.1f * distCVAmt;
+
+        // Phase distortion
+        p = currentPD(p, dist + 0.5);
+
+        outputs[PHASE_OUTPUT].setVoltageSimd(simd::clamp(p * 10.f, -12.f, 12.f), c);
+      }
+    }
   }
 };
 
