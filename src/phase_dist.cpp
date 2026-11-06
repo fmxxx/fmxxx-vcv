@@ -48,11 +48,11 @@ struct Phase_distWidget : ModuleWidget {
 
     addParam(createParamCentered<RoundBlackKnob>(mm2px(Vec(7.62, 35.56)), module, Phase_dist::PD_PARAM));
     addParam(createParamCentered<RoundBlackKnob>(mm2px(Vec(7.62, 49.53)), module, Phase_dist::PD_TYPE_PARAM));
-    addParam(createParamCentered<Trimpot>(mm2px(Vec(7.634, 66.03)), module, Phase_dist::PD_ATT_PARAM));
+    addParam(createParamCentered<Trimpot>(mm2px(Vec(7.634, 64.76)), module, Phase_dist::PD_ATT_PARAM));
 
-    addInput(createInputCentered<DarkPJ301MPort>(mm2px(Vec(7.62, 78.74)), module, Phase_dist::PD_INPUT));
-    addInput(createInputCentered<DarkPJ301MPort>(mm2px(Vec(7.62, 91.44)), module, Phase_dist::PD_TYPE_INPUT));
-    addInput(createInputCentered<DarkPJ301MPort>(mm2px(Vec(7.62, 104.14)), module, Phase_dist::PHASE_INPUT));
+    addInput(createInputCentered<DarkPJ301MPort>(mm2px(Vec(7.62, 77.47)), module, Phase_dist::PD_INPUT));
+    addInput(createInputCentered<DarkPJ301MPort>(mm2px(Vec(7.62, 90.17)), module, Phase_dist::PD_TYPE_INPUT));
+    addInput(createInputCentered<DarkPJ301MPort>(mm2px(Vec(7.62, 102.87)), module, Phase_dist::PHASE_INPUT));
 
     addOutput(createOutputCentered<DarkPJ301MPort>(mm2px(Vec(7.62, 116.84)), module, Phase_dist::PHASE_OUTPUT));
 
