@@ -7,7 +7,6 @@ void init(Plugin* p) {
 
   // Add modules here
   p->addModel(modelTuner);
-  p->addModel(modelWt);
   p->addModel(modelPhasor);
   p->addModel(modelPhase_wt);
   p->addModel(modelPhase_dist);

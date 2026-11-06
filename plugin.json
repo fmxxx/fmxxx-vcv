@@ -24,15 +24,6 @@
       ]
     },
     {
-      "slug": "wt",
-      "name": "wt",
-      "description": "Wavetable with phase distortion and modulation.",
-      "tags": [
-        "oscillator",
-        "polyphonic"
-      ]
-    },
-    {
       "slug": "phasor",
       "name": "Phasor",
       "description": "Generates a phase ramp based on a V/Oct signal. Include FM(PM)",

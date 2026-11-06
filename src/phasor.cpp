@@ -42,7 +42,7 @@ struct Phasor : Module {
   }
 
   std::array<float_4, 4> phases = {float_4(0.f), float_4(0.f),
-                                   float_4(0.f), float_4(0.f)};  // Stores phases for each channel in blocks of 4
+                                   float_4(0.f), float_4(0.f)};
   std::array<int32_4, 4> resetState = {0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff};
 
   bool isActive() {
