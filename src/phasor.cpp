@@ -90,11 +90,11 @@ struct Phasor : Module {
   }
 
   void process(const ProcessArgs& args) override {
-    // Set channels
-    int channels = inputs[VOCT_INPUT].getChannels();
-    outputs[PHASE_OUTPUT].setChannels(channels);
-
     if (this->isActive()) {
+      // Set channels
+      int channels = inputs[VOCT_INPUT].getChannels();
+      outputs[PHASE_OUTPUT].setChannels(channels);
+
       // Control Rate
       if (controlRateCounter <= 0) {
         controlRateCounter = CONTROL_RATE_INTERVAL;
