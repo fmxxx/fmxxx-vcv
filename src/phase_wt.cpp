@@ -16,8 +16,8 @@ struct Phase_wt : Module {
     PARAMS_LEN
   };
   enum InputId {
-    PD_MOD_PARAM_INPUT,
-    WAVE_INPUT,
+    PD_MOD_INPUT,
+    WAVE_MOD_INPUT,
     PHASE_INPUT,
     PD_TYPE_INPUT,
     INPUTS_LEN
@@ -33,8 +33,8 @@ struct Phase_wt : Module {
   Phase_wt() {
     config(PARAMS_LEN, INPUTS_LEN, OUTPUTS_LEN, LIGHTS_LEN);
     configParam(WAVE_PARAM, 0.f, 1.f, 0.f, "Wavetable Position", "%", 0.f, 100.f);
-    configParam(PD_PARAM, -1.f, 1.f, 0.f, "Phase Distortion", "%", 0.f, 100.f);
-    configParam(WAVESIZE_PARAM, 4.f, 12.f, 8.f, "Wave Lenght", " samples", 2.f);
+    configParam(PD_PARAM, -1.f, 1.f, 0.f, "Phase Distortion Amount", "%", 0.f, 100.f);
+    configParam(WAVESIZE_PARAM, 4.f, 12.f, 8.f, "Wave Length", " samples", 2.f);
 
     configSwitch(DO_MORPH_PARAM, 0.f, 1.f, 1.f, "Morph", {"OFF", "ON"});
     configSwitch(LFO_VCO_PARAM, 0.f, 1.f, 1.f, "Mode", {"LFO (No anti-aliasing)", "VCO (Anti-aliased)"});
@@ -45,11 +45,11 @@ struct Phase_wt : Module {
 
     applySnap();
 
-    configInput(PD_MOD_PARAM_INPUT, "Phase Distortion Mod (+, Bipolar)");
-    configInput(WAVE_INPUT, "Wavetable Position Mod (+, Bipolar)");
-    configInput(PHASE_INPUT, "Wavetable Phase");
-    configInput(PD_TYPE_INPUT, "Phase Distortion Type (+, Bipolar)");
-    configOutput(AUDIO_OUTPUT, "Right");
+    configInput(PD_MOD_INPUT, "Phase Distortion Mod (Offset, -5V +5V)");
+    configInput(WAVE_MOD_INPUT, "Wavetable Position Mod (Offset, -5V +5V)");
+    configInput(PHASE_INPUT, "Wavetable Phase [0V, 10V)");
+    configInput(PD_TYPE_INPUT, "PD Type (Mono, Overrides Knob, 0V +10V)");
+    configOutput(AUDIO_OUTPUT, "Audio Output");
   }
 
   void applySnap() {
@@ -101,8 +101,8 @@ struct Phase_wtWidget : ModuleWidget {
     addParam(createParamCentered<Trimpot>(mm2px(Vec(22.86, 78.74)), module, Phase_wt::PD_ATT_PARAM));
     addParam(createParamCentered<Trimpot>(mm2px(Vec(7.634, 78.74)), module, Phase_wt::WAVE_ATT_PARAM));
 
-    addInput(createInputCentered<DarkPJ301MPort>(mm2px(Vec(7.62, 91.44)), module, Phase_wt::WAVE_INPUT));
-    addInput(createInputCentered<DarkPJ301MPort>(mm2px(Vec(22.86, 91.44)), module, Phase_wt::PD_MOD_PARAM_INPUT));
+    addInput(createInputCentered<DarkPJ301MPort>(mm2px(Vec(7.62, 91.44)), module, Phase_wt::WAVE_MOD_INPUT));
+    addInput(createInputCentered<DarkPJ301MPort>(mm2px(Vec(22.86, 91.44)), module, Phase_wt::PD_MOD_INPUT));
     addInput(createInputCentered<DarkPJ301MPort>(mm2px(Vec(22.86, 104.14)), module, Phase_wt::PD_TYPE_INPUT));
     addInput(createInputCentered<DarkPJ301MPort>(mm2px(Vec(7.62, 116.84)), module, Phase_wt::PHASE_INPUT));
 
