@@ -24,8 +24,16 @@ struct Tuner : Module {
     LIGHTS_LEN
   };
 
+  int controlRateCounter = 0;
+  const int CONTROL_RATE_INTERVAL = 32;
+
   bool snapSemis = true;
   bool snapRatio = true;
+
+  // Knob variables, updated at control rate
+  float semisParamV = 0.f;
+  float centsParamV = 0.f;
+  float ratioKnob = 0.f;
 
   Tuner() {
     config(PARAMS_LEN, INPUTS_LEN, OUTPUTS_LEN, LIGHTS_LEN);
@@ -41,6 +49,8 @@ struct Tuner : Module {
     configInput(CENTS_INPUT, "Cents CV (±5V = ±1 semi)");
 
     configOutput(VOCT_OUTPUT, "V/Oct");
+
+    updateControlRate();
   }
 
   void applySnap() {
@@ -54,18 +64,29 @@ struct Tuner : Module {
     return outputs[VOCT_OUTPUT].isConnected();
   }
 
+  void updateControlRate() {
+    // Get knobs
+    semisParamV = params[SEMIS_PARAM].getValue() / 12.f;
+    centsParamV = params[CENTS_PARAM].getValue() / 1200.f;
+    ratioKnob = params[RATIO_PARAM].getValue();
+  }
+
   void process(const ProcessArgs& args) override {
-    int channels = inputs[VOCT_1_INPUT].getChannels();
-    channels = std::max(inputs[VOCT_2_INPUT].getChannels(), channels);
-    channels = std::max(inputs[CENTS_INPUT].getChannels(), channels);
-    channels = std::max(inputs[RATIO_INPUT].getChannels(), channels);
-    outputs[VOCT_OUTPUT].setChannels(channels);
-
-    float semisParamV = params[SEMIS_PARAM].getValue() / 12.f;
-    float centsParamV = params[CENTS_PARAM].getValue() / 1200.f;
-    float ratioKnob = params[RATIO_PARAM].getValue();
-
     if (this->isActive()) {
+      int channels = inputs[VOCT_1_INPUT].getChannels();
+      channels = std::max(inputs[VOCT_2_INPUT].getChannels(), channels);
+      channels = std::max(inputs[CENTS_INPUT].getChannels(), channels);
+      channels = std::max(inputs[RATIO_INPUT].getChannels(), channels);
+      outputs[VOCT_OUTPUT].setChannels(channels);
+
+      // Control Rate
+      if (controlRateCounter <= 0) {
+        controlRateCounter = CONTROL_RATE_INTERVAL;
+        updateControlRate();
+      }
+      controlRateCounter--;
+
+      // Per Channel, per sample
       for (int c = 0; c < channels; c += 4) {
         // Semitones + Cents
         float_4 semiCentsV = inputs[CENTS_INPUT].getPolyVoltageSimd<float_4>(c) / 60.f + semisParamV + centsParamV;
