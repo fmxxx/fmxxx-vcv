@@ -13,7 +13,7 @@ struct Phase_dist : Module {
     PARAMS_LEN
   };
   enum InputId {
-    PD_INPUT,
+    PD_MOD_INPUT,
     PD_TYPE_INPUT,
     PHASE_INPUT,
     INPUTS_LEN
@@ -29,21 +29,27 @@ struct Phase_dist : Module {
   Phase_dist() {
     config(PARAMS_LEN, INPUTS_LEN, OUTPUTS_LEN, LIGHTS_LEN);
 
-    configParam(PD_PARAM, -0.5f, 0.5f, 0.f, "Distort Amount", "%", 0.f, 200.f);
+    configParam(PD_PARAM, -0.5f, 0.5f, 0.f, "Phase Distortion Amount", "%", 0.f, 200.f);
     configSwitch(PD_TYPE_PARAM, 0.f, 10.f, 0.f, "Distortion Type", {"Skew", "RampTri", "RampRev", "Mirror", "", "", "", "", "", "", ""});
     getParamQuantity(PD_TYPE_PARAM)->snapEnabled = true;
 
     configParam(PD_ATT_PARAM, -1.f, 1.f, 0.f, "Phase Distortion CV", "%", 0.f, 100.f);
 
-    configInput(PD_INPUT, "Phase Distortion (+, Bipolar)");
-    configInput(PD_TYPE_INPUT, "PD Type (Mono, overrides knob)");
-    configInput(PHASE_INPUT, "Phase [0, 10) V");
+    configInput(PD_MOD_INPUT, "Phase Distortion Mod (Offset, -5V +5V)");
+    configInput(PD_TYPE_INPUT, "PD Type (Mono, Overrides Knob, 0V +10V)");
+    configInput(PHASE_INPUT, "Phase [0V, 10V)");
 
-    configOutput(PHASE_OUTPUT, "Phase [0, 10) V");
+    configOutput(PHASE_OUTPUT, "Phase [0V, 10V)");
+
+    updateControlRate();
   }
 
   int controlRateCounter = 0;
   const int CONTROL_RATE_INTERVAL = 32;
+
+  // Knob variables, updated at control rate
+  float distKnob = 0.f;
+  float distCVAmt = 0.f;
 
   static inline const PDistFn pdTable[] = {
       skew,
@@ -63,34 +69,40 @@ struct Phase_dist : Module {
     return outputs[PHASE_OUTPUT].isConnected();
   }
 
-  void process(const ProcessArgs& args) override {
-    int channels = inputs[PHASE_INPUT].getChannels();
-    outputs[PHASE_OUTPUT].setChannels(channels);
-
+  void updateControlRate() {
     // Get knobs
-    float distKnob = params[PD_PARAM].getValue();
-    float distCVAmt = params[PD_ATT_PARAM].getValue();
+    distKnob = params[PD_PARAM].getValue();
+    distCVAmt = params[PD_ATT_PARAM].getValue();
 
+    // Get control rate CVs
+    float typeCV = inputs[PD_TYPE_INPUT].isConnected() ? inputs[PD_TYPE_INPUT].getVoltage(0) : params[PD_TYPE_PARAM].getValue();
+
+    int typeIndex = (int)std::round(typeCV);  // 1V per algorithm
+    typeIndex = clamp(typeIndex, 0, (int)(sizeof(pdTable) / sizeof(pdTable[0])) - 1);
+
+    currentPD = pdTable[typeIndex];
+  }
+
+  void process(const ProcessArgs& args) override {
     if (this->isActive()) {
+      // Set channels
+      int channels = inputs[PHASE_INPUT].getChannels();
+      channels = std::max(inputs[PD_MOD_INPUT].getChannels(), channels);
+
+      outputs[PHASE_OUTPUT].setChannels(channels);
+
       // Control Rate
       if (controlRateCounter <= 0) {
         controlRateCounter = CONTROL_RATE_INTERVAL;
-
-        // Get control rate CVs
-        float typeCV = inputs[PD_TYPE_INPUT].isConnected() ? inputs[PD_TYPE_INPUT].getVoltage(0) : params[PD_TYPE_PARAM].getValue();
-
-        int typeIndex = (int)std::round(typeCV);  // 1V per algorithm
-        typeIndex = clamp(typeIndex, 0, (int)(sizeof(pdTable) / sizeof(pdTable[0])) - 1);
-
-        currentPD = pdTable[typeIndex];
+        updateControlRate();
       }
       controlRateCounter--;
 
-      // Per sample
+      // Per channel, per sample
       for (int c = 0; c < channels; c += 4) {
         float_4 p = inputs[PHASE_INPUT].getPolyVoltageSimd<float_4>(c) * 0.1f;
 
-        float_4 distCV = inputs[PD_INPUT].getPolyVoltageSimd<float_4>(c);
+        float_4 distCV = inputs[PD_MOD_INPUT].getPolyVoltageSimd<float_4>(c);
         float_4 dist = distKnob + distCV * 0.1f * distCVAmt;
 
         // Phase distortion
@@ -116,7 +128,7 @@ struct Phase_distWidget : ModuleWidget {
     addParam(createParamCentered<RoundBlackKnob>(mm2px(Vec(7.62, 49.53)), module, Phase_dist::PD_TYPE_PARAM));
     addParam(createParamCentered<Trimpot>(mm2px(Vec(7.634, 64.76)), module, Phase_dist::PD_ATT_PARAM));
 
-    addInput(createInputCentered<DarkPJ301MPort>(mm2px(Vec(7.62, 77.47)), module, Phase_dist::PD_INPUT));
+    addInput(createInputCentered<DarkPJ301MPort>(mm2px(Vec(7.62, 77.47)), module, Phase_dist::PD_MOD_INPUT));
     addInput(createInputCentered<DarkPJ301MPort>(mm2px(Vec(7.62, 90.17)), module, Phase_dist::PD_TYPE_INPUT));
     addInput(createInputCentered<DarkPJ301MPort>(mm2px(Vec(7.62, 102.87)), module, Phase_dist::PHASE_INPUT));
 
