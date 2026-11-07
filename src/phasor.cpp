@@ -38,8 +38,18 @@ struct Phasor : Module {
     configInput(RESET_INPUT, "Reset Trigger (≥ 1V)");
     configInput(VOCT_INPUT, "V/Oct");
     configOutput(PHASE_OUTPUT, "Phase [0V, 10V)");
+
+    updateControlRate();
   }
 
+  int controlRateCounter = 0;
+  const int CONTROL_RATE_INTERVAL = 32;
+
+  // Knob variables, updated at control rate
+  float freqBase = 0.f;
+  float pmAmt = 0.f;
+
+  // Phase state
   std::array<float_4, 4> phases = {float_4(0.f), float_4(0.f),
                                    float_4(0.f), float_4(0.f)};
   std::array<int32_4, 4> resetState = {0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff};
@@ -66,9 +76,17 @@ struct Phasor : Module {
 
   // Reset from right click menu
   void onReset() override {
+    updateControlRate();
     for (auto& p : phases) p = float_4(0.f);
     for (auto& r : resetState) r = int32_4(-1);  // 0xffffffff
     Module::onReset();
+  }
+
+  void updateControlRate() {
+    // Get knobs
+    freqBase = dsp::FREQ_C4 * std::powf(2.f, params[FREQ_PARAM].getValue());
+    float x = params[PM_AMT_PARAM].getValue();
+    pmAmt = x * x;
   }
 
   void process(const ProcessArgs& args) override {
@@ -77,9 +95,12 @@ struct Phasor : Module {
     outputs[PHASE_OUTPUT].setChannels(channels);
 
     if (this->isActive()) {
-      // Global, per sample
-      float freqBase = dsp::FREQ_C4 * std::powf(2.f, params[FREQ_PARAM].getValue());
-      float pmAmt = std::powf(params[PM_AMT_PARAM].getValue(), 2);
+      // Control Rate
+      if (controlRateCounter <= 0) {
+        controlRateCounter = CONTROL_RATE_INTERVAL;
+        updateControlRate();
+      }
+      controlRateCounter--;
 
       // Per Channel, per sample
       for (int c = 0; c < channels; c += 4) {
