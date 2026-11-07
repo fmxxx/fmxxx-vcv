@@ -85,6 +85,7 @@ struct Phasor : Module {
   void updateControlRate() {
     // Get knobs
     freqBase = dsp::FREQ_C4 * std::powf(2.f, params[FREQ_PARAM].getValue());
+
     float x = params[PM_AMT_PARAM].getValue();
     pmAmt = x * x;
   }
@@ -113,7 +114,7 @@ struct Phasor : Module {
 
         // Phase modulation
         float_4 pmSrc = inputs[PM_INPUT].getPolyVoltageSimd<float_4>(c);
-        float_4 pmVCA = inputs[PM_VCA_INPUT].getNormalPolyVoltageSimd<float_4>(c, 10.f) * 0.1f;
+        float_4 pmVCA = inputs[PM_VCA_INPUT].getNormalPolyVoltageSimd<float_4>(10.f, c) * 0.1f;
 
         p = phaseMod(p, pmSrc * pmAmt * pmVCA);
         p = wrap(p);
