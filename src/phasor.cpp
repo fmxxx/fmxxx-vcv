@@ -11,6 +11,7 @@ struct Phasor : Module {
   enum ParamId {
     FREQ_PARAM,
     PM_AMT_PARAM,
+    PHASE_OFFSET_PARAM,
     PARAMS_LEN
   };
   enum InputId {
@@ -32,6 +33,7 @@ struct Phasor : Module {
     config(PARAMS_LEN, INPUTS_LEN, OUTPUTS_LEN, LIGHTS_LEN);
     configParam(FREQ_PARAM, -5.f, 5.f, 0.f, "Frequency", " Hz", 2.f, dsp::FREQ_C4);
     configParam(PM_AMT_PARAM, 0.f, 1.f, 0.f, "Phase Modulation", "%", 0.f, 100.f);
+    configParam(PHASE_OFFSET_PARAM, 0.f, 0.5f, 0.f, "Phase Offset", "°", 0.f, 360.f);
 
     configInput(PM_VCA_INPUT, "PM Amplitude (Scale, 0V +10V)");
     configInput(PM_INPUT, "Phase Modulation (Offset, -5V +5V)");
@@ -48,6 +50,7 @@ struct Phasor : Module {
   // Knob variables, updated at control rate
   float freqBase = 0.f;
   float pmAmt = 0.f;
+  float phaseOffset = 0.f;
 
   // Phase state
   std::array<float_4, 4> phases = {float_4(0.f), float_4(0.f),
@@ -88,12 +91,14 @@ struct Phasor : Module {
 
     float x = params[PM_AMT_PARAM].getValue();
     pmAmt = x * x;
+
+    phaseOffset = params[PHASE_OFFSET_PARAM].getValue();
   }
 
   void process(const ProcessArgs& args) override {
     if (this->isActive()) {
       // Set channels
-      int channels = inputs[VOCT_INPUT].getChannels();
+      int channels = std::max(1, inputs[VOCT_INPUT].getChannels());
       outputs[PHASE_OUTPUT].setChannels(channels);
 
       // Control Rate
@@ -107,10 +112,12 @@ struct Phasor : Module {
       for (int c = 0; c < channels; c += 4) {
         int block = c / 4;
         // Phasor
-        float_4 hz = voct_to_hz(freqBase, inputs[VOCT_INPUT].getPolyVoltageSimd<float_4>(c));
+        float_4 hz = voct_to_hz(freqBase, inputs[VOCT_INPUT].getNormalPolyVoltageSimd<float_4>(0.f, c));
 
         float_4 p = phasor(phases[block], hz, args.sampleRate);
         phases[block] = resetPhase(block, inputs[RESET_INPUT].getPolyVoltageSimd<float_4>(c), p);
+        p += phaseOffset;
+        wrap(p);
 
         // Phase modulation
         float_4 pmSrc = inputs[PM_INPUT].getPolyVoltageSimd<float_4>(c);
@@ -137,7 +144,7 @@ struct PhasorWidget : ModuleWidget {
 
     addParam(createParamCentered<RoundBlackKnob>(mm2px(Vec(7.62, 19.05)), module, Phasor::FREQ_PARAM));
     addParam(createParamCentered<RoundBlackKnob>(mm2px(Vec(7.62, 33.02)), module, Phasor::PM_AMT_PARAM));
-    // addParam(createParamCentered<RoundBlackKnob>(mm2px(Vec(7.62, 48.26)), module, Phasor::SKEW_AMT_PARAM)); // Placeholder
+    addParam(createParamCentered<RoundBlackKnob>(mm2px(Vec(7.62, 46.99)), module, Phasor::PHASE_OFFSET_PARAM));
 
     addInput(createInputCentered<DarkPJ301MPort>(mm2px(Vec(7.62, 64.77)), module, Phasor::PM_VCA_INPUT));
     addInput(createInputCentered<DarkPJ301MPort>(mm2px(Vec(7.62, 77.47)), module, Phasor::PM_INPUT));
