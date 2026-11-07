@@ -11,12 +11,11 @@ struct Phasor : Module {
   enum ParamId {
     FREQ_PARAM,
     PM_AMT_PARAM,
-    SKEW_AMT_PARAM,
     PARAMS_LEN
   };
   enum InputId {
+    PM_VCA_INPUT,
     PM_INPUT,
-    SKEW_INPUT,
     RESET_INPUT,
     VOCT_INPUT,
     INPUTS_LEN
@@ -32,13 +31,13 @@ struct Phasor : Module {
   Phasor() {
     config(PARAMS_LEN, INPUTS_LEN, OUTPUTS_LEN, LIGHTS_LEN);
     configParam(FREQ_PARAM, -5.f, 5.f, 0.f, "Frequency", " Hz", 2.f, dsp::FREQ_C4);
-    configParam(PM_AMT_PARAM, 0.f, 1.f, 0.f, "PM Amount", "%", 0.f, 100.f);
-    configParam(SKEW_AMT_PARAM, -0.5f, 0.5f, 0.f, "Skew Amount", "%", 0.f, 200.f);
-    configInput(PM_INPUT, "Phase Modulation (x, Unipolar)");
-    configInput(SKEW_INPUT, "Skew (+, Bipolar)");
+    configParam(PM_AMT_PARAM, 0.f, 1.f, 0.f, "Phase Modulation", "%", 0.f, 100.f);
+
+    configInput(PM_VCA_INPUT, "PM Amplitude (Scale, 0V +10V)");
+    configInput(PM_INPUT, "Phase Modulation (Offset, -5V +5V)");
     configInput(RESET_INPUT, "Reset Trigger (≥ 1V)");
     configInput(VOCT_INPUT, "V/Oct");
-    configOutput(PHASE_OUTPUT, "Phase");
+    configOutput(PHASE_OUTPUT, "Phase [0V, 10V)");
   }
 
   std::array<float_4, 4> phases = {float_4(0.f), float_4(0.f),
@@ -53,7 +52,7 @@ struct Phasor : Module {
     return hz * simd::pow(2.f, v);
   }
 
-  float_4 reset(int block, float_4 newVal, float_4 p) {
+  float_4 resetPhase(int block, float_4 newVal, float_4 p) {
     // Create a boolean mask from the input threshold
     int32_4 newState = (newVal >= 1.0f);
 
@@ -65,35 +64,38 @@ struct Phasor : Module {
     return simd::ifelse(edgeMask, float_4(0.0f), p);
   }
 
+  // Reset from right click menu
+  void onReset() override {
+    for (auto& p : phases) p = float_4(0.f);
+    for (auto& r : resetState) r = int32_4(-1);  // 0xffffffff
+    Module::onReset();
+  }
+
   void process(const ProcessArgs& args) override {
     // Set channels
     int channels = inputs[VOCT_INPUT].getChannels();
     outputs[PHASE_OUTPUT].setChannels(channels);
 
     if (this->isActive()) {
-      // Global
+      // Global, per sample
       float freqBase = dsp::FREQ_C4 * std::powf(2.f, params[FREQ_PARAM].getValue());
-
       float pmAmt = std::powf(params[PM_AMT_PARAM].getValue(), 2);
-      float skewAmt = params[SKEW_AMT_PARAM].getValue();
 
-      // Per Channel
+      // Per Channel, per sample
       for (int c = 0; c < channels; c += 4) {
         int block = c / 4;
         // Phasor
         float_4 hz = voct_to_hz(freqBase, inputs[VOCT_INPUT].getPolyVoltageSimd<float_4>(c));
 
         float_4 p = phasor(phases[block], hz, args.sampleRate);
-        phases[block] = reset(block, inputs[RESET_INPUT].getPolyVoltageSimd<float_4>(c), p);
+        phases[block] = resetPhase(block, inputs[RESET_INPUT].getPolyVoltageSimd<float_4>(c), p);
 
         // Phase modulation
         float_4 pmSrc = inputs[PM_INPUT].getPolyVoltageSimd<float_4>(c);
-        p = phaseMod(p, pmSrc, pmAmt);
-        p = wrap(p);
+        float_4 pmVCA = inputs[PM_VCA_INPUT].getNormalPolyVoltageSimd<float_4>(c, 10.f) * 0.1f;
 
-        // Phase distortion
-        float_4 skewSrc = inputs[SKEW_INPUT].getPolyVoltageSimd<float_4>(c) * 0.1f;
-        p = skew(p, skewSrc, skewAmt + 0.5f);
+        p = phaseMod(p, pmSrc * pmAmt * pmVCA);
+        p = wrap(p);
 
         outputs[PHASE_OUTPUT].setVoltageSimd(simd::clamp(p * 10.f, -12.f, 12.f), c);
       }
@@ -113,10 +115,10 @@ struct PhasorWidget : ModuleWidget {
 
     addParam(createParamCentered<RoundBlackKnob>(mm2px(Vec(7.62, 19.05)), module, Phasor::FREQ_PARAM));
     addParam(createParamCentered<RoundBlackKnob>(mm2px(Vec(7.62, 33.02)), module, Phasor::PM_AMT_PARAM));
-    addParam(createParamCentered<RoundBlackKnob>(mm2px(Vec(7.62, 48.26)), module, Phasor::SKEW_AMT_PARAM));
+    // addParam(createParamCentered<RoundBlackKnob>(mm2px(Vec(7.62, 48.26)), module, Phasor::SKEW_AMT_PARAM)); // Placeholder
 
-    addInput(createInputCentered<DarkPJ301MPort>(mm2px(Vec(7.62, 64.77)), module, Phasor::PM_INPUT));
-    addInput(createInputCentered<DarkPJ301MPort>(mm2px(Vec(7.62, 77.47)), module, Phasor::SKEW_INPUT));
+    addInput(createInputCentered<DarkPJ301MPort>(mm2px(Vec(7.62, 64.77)), module, Phasor::PM_VCA_INPUT));
+    addInput(createInputCentered<DarkPJ301MPort>(mm2px(Vec(7.62, 77.47)), module, Phasor::PM_INPUT));
     addInput(createInputCentered<DarkPJ301MPort>(mm2px(Vec(7.62, 90.17)), module, Phasor::RESET_INPUT));
     addInput(createInputCentered<DarkPJ301MPort>(mm2px(Vec(7.62, 102.87)), module, Phasor::VOCT_INPUT));
 
