@@ -18,8 +18,8 @@ inline float_4 phasor(float_4 phase, float_4 freq, float_4 sampleRate) {
 }
 
 // Classic phase modulation (usually called FM)
-inline float_4 phaseMod(float_4 phase, float_4 mod, float_4 modAmt) {
-  return phase + mod * modAmt;
+inline float_4 phaseMod(const float_4 phase, const float_4 mod) {
+  return phase + mod;
 }
 
 // Wraps it back into [0, 1) range
