@@ -50,6 +50,16 @@
         "phase",
         "polyphonic"
       ]
+    },
+    {
+      "slug": "fract",
+      "name": "Fract",
+      "description": "Ratio tuner that uses fractions, with numerator and denominator knobs and CV",
+      "tags": [
+        "tuner",
+        "utility",
+        "polyphonic"
+      ]
     }
   ]
 }
