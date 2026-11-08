@@ -49,9 +49,6 @@ struct Fract : Module {
   // Knob variables, updated at control rate
   float num = 1.f;
   float denom = 1.f;
-  // CV variables, udpated at control rate
-  float numCV = 0.f;
-  float denomCV = 0.f;
 
   void applySnap() {
     getParamQuantity(NUM_PARAM)->snapEnabled = snapNum;
@@ -96,9 +93,10 @@ struct Fract : Module {
         float_4 ratio = simd::clamp(num + numMod, 1.f, 100.f) /
                         simd::clamp(denom + denomMod, 1.f, 100.f);
 
-        // Add voct inputs
-        float_4 v = inputs[VOCT_1_INPUT].getPolyVoltageSimd<float_4>(c) +
-                    inputs[VOCT_2_INPUT].getPolyVoltageSimd<float_4>(c) + simd::log2(ratio);
+        // Add them all
+        float_4 v =
+            inputs[VOCT_1_INPUT].getNormalPolyVoltageSimd<float_4>(0.f, c) +
+            inputs[VOCT_2_INPUT].getNormalPolyVoltageSimd<float_4>(0.f, c) + simd::log2(ratio);
 
         outputs[VOCT_OUTPUT].setVoltageSimd(simd::clamp(v, -12.f, 12.f), c);
       }
