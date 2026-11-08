@@ -99,9 +99,10 @@ struct Tuner : Module {
         ratio = simd::clamp(ratio, 1.f, 32.f);
 
         // Add them all
-        float_4 v = inputs[VOCT_1_INPUT].getPolyVoltageSimd<float_4>(c) +
-                    inputs[VOCT_2_INPUT].getPolyVoltageSimd<float_4>(c) +
-                    semiCentsV + simd::log2(ratio);
+        float_4 v =
+            inputs[VOCT_1_INPUT].getNormalPolyVoltageSimd<float_4>(0.f, c) +
+            inputs[VOCT_2_INPUT].getNormalPolyVoltageSimd<float_4>(0.f, c) +
+            semiCentsV + simd::log2(ratio);
 
         outputs[VOCT_OUTPUT].setVoltageSimd(simd::clamp(v, -12.f, 12.f), c);
       }
