@@ -124,7 +124,6 @@ struct Phasor : Module {
         float_4 pmVCA = inputs[PM_VCA_INPUT].getNormalPolyVoltageSimd<float_4>(10.f, c) * 0.1f;
 
         p = phaseMod(p, pmSrc * pmAmt * pmVCA);
-        p = wrap(p);
 
         outputs[PHASE_OUTPUT].setVoltageSimd(simd::clamp(p * 10.f, -12.f, 12.f), c);
       }
