@@ -92,15 +92,33 @@ inline float_4 mute(const float_4 phase, const float_4 dist) {
   return simd::ifelse((w >= 1.f) & (w < 2.f), phase, 0.f);
 }
 
+// Squeezes the waveform
+// dist > 0.5: squeeze toward beginning (waveform plays fast at the start)
+// dist < 0.5: squeeze toward end       (waveform plays fast at the end)
 inline float_4 formant(float_4 phase, float_4 dist) {
-  return phase;
+  const float_4 d = simd::clamp(dist, 0.f, 1.f);
+  const float_4 d2 = simd::pow(2.f, simd::fabs(d - 0.5) * 8.f);
+
+  const float_4 s = simd::ifelse(d >= 0.5f, 1.f, -1.f);
+
+  // Reflected phase:
+  // s = +1 : phase
+  // s = -1 : 1 - phase
+  const float_4 p2 = 0.5f + s * (phase - 0.5f);
+
+  const float_4 z = p2 * d2;
+  // s = 1: z
+  // s = -1 : 1 - z
+  const float_4 inner = 0.5f + s * (z - 0.5f);
+
+  return simd::ifelse(z < 1.f, inner, 0.f);
 }
 
 // Scales the phase using powers of 2, creating an octave sync effect
 // dist >= 0.5 increases up to 4 octaves
 // dist <= 0.5 decreases down to 4 octaves
 inline float_4 powr2(const float_4 phase, const float_4 dist) {
-  const float_4 d = simd::clamp(dist, 0.f, 1.f);
+  const float_4 d = simd::clamp(dist, 0.f, 4.f);
   const float_4 d2 = d - 0.5f;
 
   return wrap(phase * simd::pow(2.f, d2 * 4.f));
