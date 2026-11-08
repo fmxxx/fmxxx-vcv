@@ -29,8 +29,8 @@ struct Phase_dist : Module {
   Phase_dist() {
     config(PARAMS_LEN, INPUTS_LEN, OUTPUTS_LEN, LIGHTS_LEN);
 
-    configParam(PD_PARAM, -0.5f, 0.5f, 0.f, "Phase Distortion Amount", "%", 0.f, 200.f);
-    configSwitch(PD_TYPE_PARAM, 0.f, 10.f, 0.f, "Distortion Type", {"Skew", "RampTri", "RampRev", "Mirror", "", "", "", "", "", "", ""});
+    configParam(PD_PARAM, 0.f, 1.f, 0.5f, "Phase Distortion Position", "%", 0.f, 100.f);
+    configSwitch(PD_TYPE_PARAM, 0.f, 10.f, 0.f, "Distortion Type", {"Horizontal Skew", "Bend", "RampTri", "RampRev", "Mirror", "Mute", "Formant", "Power2", "Aliased Quantize", "", "", ""});
     getParamQuantity(PD_TYPE_PARAM)->snapEnabled = true;
 
     configParam(PD_ATT_PARAM, -1.f, 1.f, 0.f, "Phase Distortion CV", "%", 0.f, 100.f);
@@ -52,18 +52,34 @@ struct Phase_dist : Module {
   float distCVAmt = 0.f;
 
   static inline const PDistFn pdTable[] = {
-      skew,
+      hSkew,
+      bend,
       rampToTriangle,
       rampReverse,
       mirror,
+      mute,
+      formant,
+      powr2,
+      aliasQuantize,
+      passthrough,  // slot 8
+      passthrough,  // slot 9
+      passthrough,  // slot 10
   };
 
-  enum class PDist { Skew,
+  enum class PDist { HorSkew,
+                     Bend,
                      RampTri,
                      RampRev,
-                     Mirror };  // Needs to be in the same order as PDistFn
+                     Mirror,
+                     Mute,
+                     Formant,
+                     Power2,
+                     Quantize,
+                     Slot8,
+                     Slot9,
+                     Slot10 };  // Needs to be in the same order as PDistFn
 
-  PDistFn currentPD = skew;
+  PDistFn currentPD = hSkew;
 
   bool isActive() {
     return outputs[PHASE_OUTPUT].isConnected();
@@ -75,9 +91,11 @@ struct Phase_dist : Module {
     distCVAmt = params[PD_ATT_PARAM].getValue();
 
     // Get control rate CVs
-    float typeCV = inputs[PD_TYPE_INPUT].isConnected() ? inputs[PD_TYPE_INPUT].getVoltage(0) : params[PD_TYPE_PARAM].getValue();
+    float typeValue = inputs[PD_TYPE_INPUT].isConnected()
+                          ? inputs[PD_TYPE_INPUT].getVoltage(0)
+                          : params[PD_TYPE_PARAM].getValue();
 
-    int typeIndex = (int)std::round(typeCV);  // 1V per algorithm
+    int typeIndex = (int)std::round(typeValue);  // 1V per algorithm
     typeIndex = clamp(typeIndex, 0, (int)(sizeof(pdTable) / sizeof(pdTable[0])) - 1);
 
     currentPD = pdTable[typeIndex];
@@ -106,7 +124,7 @@ struct Phase_dist : Module {
         float_4 dist = distKnob + distCV * 0.1f * distCVAmt;
 
         // Phase distortion
-        p = currentPD(p, dist + 0.5);
+        p = currentPD(p, dist);
 
         outputs[PHASE_OUTPUT].setVoltageSimd(simd::clamp(p * 10.f, -12.f, 12.f), c);
       }
