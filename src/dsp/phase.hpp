@@ -17,14 +17,14 @@ inline float_4 phasor(float_4 phase, float_4 freq, float_4 sampleRate) {
   return phase;
 }
 
-// Classic phase modulation (usually called FM)
-inline float_4 phaseMod(const float_4 phase, const float_4 mod) {
-  return wrap(phase + mod);
-}
-
 // Wraps it back into [0, 1) range
 inline float_4 wrap(float_4 phase) {
   return simd::clamp(phase - simd::floor(phase), 0.f, 1.f);
+}
+
+// Classic phase modulation (usually called FM)
+inline float_4 phaseMod(const float_4 phase, const float_4 mod) {
+  return wrap(phase + mod);
 }
 
 // ------ PHASE DISTORTION ALGORITHMS ------ //
