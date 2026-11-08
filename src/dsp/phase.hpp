@@ -129,7 +129,7 @@ inline float_4 powr2(const float_4 phase, const float_4 dist) {
 
   const float_4 d2 = d - 0.5f;
 
-  return wrap(p * simd::pow(2.f, d2 * 4.f));
+  return wrap(p * simd::pow(2.f, d2 * 8.f));
 }
 
 // Quantizes the phase, creating a lo-fi, bitcrushed waveform
