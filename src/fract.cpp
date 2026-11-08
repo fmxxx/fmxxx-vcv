@@ -73,6 +73,7 @@ struct Fract : Module {
       channels = std::max(inputs[VOCT_2_INPUT].getChannels(), channels);
       channels = std::max(inputs[NUM_INPUT].getChannels(), channels);
       channels = std::max(inputs[DENOM_INPUT].getChannels(), channels);
+      channels = std::max(1, channels);
       outputs[VOCT_OUTPUT].setChannels(channels);
 
       // Control Rate

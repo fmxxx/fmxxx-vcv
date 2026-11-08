@@ -61,13 +61,14 @@ struct Phase_wt : Module {
   }
 
   void process(const ProcessArgs& args) override {
-    int channels = inputs[PHASE_INPUT].getChannels();
-    outputs[AUDIO_OUTPUT].setChannels(channels);
-
-    float offset = params[UNI_BI_PARAM].getValue() >= 1.f ? 0 : 5.f;
-    float wtPosBase = params[WAVE_PARAM].getValue();
-
     if (this->isActive()) {
+      int channels = inputs[PHASE_INPUT].getChannels();
+      channels = std::max(1, channels);
+      outputs[AUDIO_OUTPUT].setChannels(channels);
+
+      float offset = params[UNI_BI_PARAM].getValue() >= 1.f ? 0 : 5.f;
+      float wtPosBase = params[WAVE_PARAM].getValue();
+
       for (int c = 0; c < channels; c += 4) {
         // Phase
         float_4 p = inputs[PHASE_INPUT].getPolyVoltageSimd<float_4>(c) * 0.1f;

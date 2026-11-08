@@ -106,7 +106,7 @@ struct Phase_dist : Module {
       // Set channels
       int channels = inputs[PHASE_INPUT].getChannels();
       channels = std::max(inputs[PD_MOD_INPUT].getChannels(), channels);
-
+      channels = std::max(1, channels);
       outputs[PHASE_OUTPUT].setChannels(channels);
 
       // Control Rate

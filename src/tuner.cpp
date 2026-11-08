@@ -77,6 +77,7 @@ struct Tuner : Module {
       channels = std::max(inputs[VOCT_2_INPUT].getChannels(), channels);
       channels = std::max(inputs[CENTS_INPUT].getChannels(), channels);
       channels = std::max(inputs[RATIO_INPUT].getChannels(), channels);
+      channels = std::max(1, channels);
       outputs[VOCT_OUTPUT].setChannels(channels);
 
       // Control Rate
