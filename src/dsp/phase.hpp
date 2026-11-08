@@ -161,6 +161,20 @@ inline float_4 bend(const float_4 phase, const float_4 dist) {
   return 0.5f + s * (yr - 0.5f);
 }
 
+// Applies an exponential curve to the signal, compressing it near 0.5
+inline float_4 pinch(float_4 phase, float_4 dist) {
+  const float_4 d = simd::clamp(dist, 0.f, 1.f);
+  const float_4 d2 = simd::pow(2.f, 6.f * d - 3.f);  // Map dist [0,1] -> d2 [1/8, 8]
+
+  // Clamp phase to keep pow() bases non-negative (avoid NaN from pow(neg, frac))
+  const float_4 p = simd::clamp(phase, 0.f, 1.f);
+
+  const float_4 low = 0.5f * simd::pow(2.f * p, d2);
+  const float_4 high = 1.f - 0.5f * simd::pow(2.f - 2.f * p, d2);
+
+  return simd::ifelse(p < 0.5f, low, high);
+}
+
 inline float_4 passthrough(const float_4 phase, const float_4 dist) {
   return phase;
 }

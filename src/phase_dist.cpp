@@ -32,7 +32,7 @@ struct Phase_dist : Module {
     configParam(PD_PARAM, 0.f, 1.f, 0.5f, "Phase Distortion", "%", 0.f, 200.f, -100.f);
 
     configSwitch(PD_TYPE_PARAM, 0.f, 10.f, 0.f, "Distortion Type",
-                 {"Horizontal Skew", "Bend", "RampTri", "RampRev", "Mirror", "Mute", "Formant", "Power2", "Aliased Quantize", "10", "Bypass"});
+                 {"Horizontal Skew", "Bend", "Pinch", "RampTri", "RampRev", "Mirror", "Mute", "Formant", "Power2", "Aliased Quantize", "Bypass"});
     getParamQuantity(PD_TYPE_PARAM)->snapEnabled = true;
 
     configParam(PD_ATT_PARAM, -1.f, 1.f, 0.f, "Phase Distortion CV", "%", 0.f, 100.f);
@@ -56,6 +56,7 @@ struct Phase_dist : Module {
   static inline const PDistFn pdTable[] = {
       hSkew,
       bend,
+      pinch,
       rampToTriangle,
       rampReverse,
       mirror,
@@ -63,12 +64,12 @@ struct Phase_dist : Module {
       formant,
       powr2,
       aliasQuantize,
-      passthrough,  // slot 10
-      passthrough,  // slot 11
+      passthrough,
   };
 
   enum class PDist { HorSkew,
                      Bend,
+                     Pinch,
                      RampTri,
                      RampRev,
                      Mirror,
@@ -76,8 +77,7 @@ struct Phase_dist : Module {
                      Formant,
                      Power2,
                      Quantize,
-                     Slot10,
-                     Slot11 };  // Needs to be in the same order as PDistFn
+                     Bypass };
 
   PDistFn currentPD = hSkew;
 
