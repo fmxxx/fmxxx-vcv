@@ -89,11 +89,13 @@ struct Tuner : Module {
       // Per Channel, per sample
       for (int c = 0; c < channels; c += 4) {
         // Semitones + Cents
-        float_4 semiCentsV = inputs[CENTS_INPUT].getPolyVoltageSimd<float_4>(c) / 60.f + semisParamV + centsParamV;
+        float_4 semiCentsV =
+            inputs[CENTS_INPUT].getNormalPolyVoltageSimd<float_4>(0.f, c) / 60.f + semisParamV + centsParamV;
         semiCentsV = simd::clamp(semiCentsV, -12.f, 12.f);
 
         // Ratio
-        float_4 ratioIn = inputs[RATIO_INPUT].getPolyVoltageSimd<float_4>(c) * 6.4;
+        float_4 ratioIn =
+            inputs[RATIO_INPUT].getNormalPolyVoltageSimd<float_4>(0.f, c) * 6.4;
         ratioIn = snapRatio ? simd::round(ratioIn) : ratioIn;
         float_4 ratio = ratioKnob + ratioIn;
         ratio = simd::clamp(ratio, 1.f, 32.f);
