@@ -9,11 +9,11 @@ struct Phase_dist : Module {
   enum ParamId {
     PD_PARAM,
     PD_TYPE_PARAM,
-    PD_ATT_PARAM,
+    PD_CV_AMT_PARAM,
     PARAMS_LEN
   };
   enum InputId {
-    PD_MOD_INPUT,
+    PD_INPUT,
     PD_TYPE_INPUT,
     PHASE_INPUT,
     INPUTS_LEN
@@ -35,9 +35,9 @@ struct Phase_dist : Module {
                  {"Horizontal Skew", "Bend", "Pinch", "RampTri", "RampRev", "Mirror", "Mute", "Formant", "Power2", "Aliased Quantize", "Bypass"});
     getParamQuantity(PD_TYPE_PARAM)->snapEnabled = true;
 
-    configParam(PD_ATT_PARAM, -1.f, 1.f, 0.f, "Phase Distortion CV", "%", 0.f, 100.f);
+    configParam(PD_CV_AMT_PARAM, -1.f, 1.f, 0.f, "Phase Distortion CV", "%", 0.f, 100.f);
 
-    configInput(PD_MOD_INPUT, "Phase Distortion Mod (Offset, -5V +5V)");
+    configInput(PD_INPUT, "Phase Distortion Mod (Offset, -5V +5V)");
     configInput(PD_TYPE_INPUT, "PD Type (Mono, Overrides Knob, 0V +10V)");
     configInput(PHASE_INPUT, "Phase [0V, 10V)");
 
@@ -50,8 +50,8 @@ struct Phase_dist : Module {
   const int CONTROL_RATE_INTERVAL = 32;
 
   // Knob variables, updated at control rate
-  float distKnob = 0.f;
-  float distCVAmt = 0.f;
+  float pdParam = 0.f;
+  float pdCVAmtParam = 0.f;
 
   static inline const PDistFn pdTable[] = {
       hSkew,
@@ -87,8 +87,8 @@ struct Phase_dist : Module {
 
   void updateControlRate() {
     // Get knobs
-    distKnob = params[PD_PARAM].getValue();
-    distCVAmt = params[PD_ATT_PARAM].getValue();
+    pdParam = params[PD_PARAM].getValue();
+    pdCVAmtParam = params[PD_CV_AMT_PARAM].getValue();
 
     // Get control rate CVs
     float typeValue = inputs[PD_TYPE_INPUT].isConnected()
@@ -105,7 +105,7 @@ struct Phase_dist : Module {
     if (this->isActive()) {
       // Set channels
       int channels = inputs[PHASE_INPUT].getChannels();
-      channels = std::max(inputs[PD_MOD_INPUT].getChannels(), channels);
+      channels = std::max(inputs[PD_INPUT].getChannels(), channels);
       channels = std::max(1, channels);
       outputs[PHASE_OUTPUT].setChannels(channels);
 
@@ -120,8 +120,8 @@ struct Phase_dist : Module {
       for (int c = 0; c < channels; c += 4) {
         float_4 p = inputs[PHASE_INPUT].getPolyVoltageSimd<float_4>(c) * 0.1f;
 
-        float_4 distCV = inputs[PD_MOD_INPUT].getPolyVoltageSimd<float_4>(c);
-        float_4 dist = distKnob + distCV * 0.1f * distCVAmt;
+        float_4 pdMod = inputs[PD_INPUT].getPolyVoltageSimd<float_4>(c) * 0.1f * pdCVAmtParam;
+        float_4 dist = pdParam + pdMod;
 
         // Phase distortion
         p = currentPD(p, dist);
@@ -144,9 +144,9 @@ struct Phase_distWidget : ModuleWidget {
 
     addParam(createParamCentered<RoundBlackKnob>(mm2px(Vec(7.62, 35.56)), module, Phase_dist::PD_PARAM));
     addParam(createParamCentered<RoundBlackKnob>(mm2px(Vec(7.62, 49.53)), module, Phase_dist::PD_TYPE_PARAM));
-    addParam(createParamCentered<Trimpot>(mm2px(Vec(7.634, 64.76)), module, Phase_dist::PD_ATT_PARAM));
+    addParam(createParamCentered<Trimpot>(mm2px(Vec(7.634, 64.76)), module, Phase_dist::PD_CV_AMT_PARAM));
 
-    addInput(createInputCentered<DarkPJ301MPort>(mm2px(Vec(7.62, 77.47)), module, Phase_dist::PD_MOD_INPUT));
+    addInput(createInputCentered<DarkPJ301MPort>(mm2px(Vec(7.62, 77.47)), module, Phase_dist::PD_INPUT));
     addInput(createInputCentered<DarkPJ301MPort>(mm2px(Vec(7.62, 90.17)), module, Phase_dist::PD_TYPE_INPUT));
     addInput(createInputCentered<DarkPJ301MPort>(mm2px(Vec(7.62, 102.87)), module, Phase_dist::PHASE_INPUT));
 

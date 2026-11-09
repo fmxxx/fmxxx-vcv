@@ -10,12 +10,12 @@ using simd::int32_4;
 struct Phasor : Module {
   enum ParamId {
     FREQ_PARAM,
-    PM_AMT_PARAM,
+    PM_PARAM,
     PHASE_OFFSET_PARAM,
     PARAMS_LEN
   };
   enum InputId {
-    PM_VCA_INPUT,
+    PM_CV_AMT_INPUT,
     PM_INPUT,
     RESET_INPUT,
     VOCT_INPUT,
@@ -32,10 +32,10 @@ struct Phasor : Module {
   Phasor() {
     config(PARAMS_LEN, INPUTS_LEN, OUTPUTS_LEN, LIGHTS_LEN);
     configParam(FREQ_PARAM, -5.f, 5.f, 0.f, "Frequency", " Hz", 2.f, dsp::FREQ_C4);
-    configParam(PM_AMT_PARAM, 0.f, 1.f, 0.f, "Phase Modulation", "%", 0.f, 100.f);
+    configParam(PM_PARAM, 0.f, 1.f, 0.f, "Phase Modulation", "%", 0.f, 100.f);
     configParam(PHASE_OFFSET_PARAM, 0.f, 0.5f, 0.f, "Phase Offset", "°", 0.f, 360.f);
 
-    configInput(PM_VCA_INPUT, "PM Amplitude (Scale, 0V +10V)");
+    configInput(PM_CV_AMT_INPUT, "PM Amplitude (Scale, 0V +10V)");
     configInput(PM_INPUT, "Phase Modulation (Offset, -5V +5V)");
     configInput(RESET_INPUT, "Reset Trigger (≥ 1V)");
     configInput(VOCT_INPUT, "V/Oct");
@@ -48,8 +48,8 @@ struct Phasor : Module {
   const int CONTROL_RATE_INTERVAL = 32;
 
   // Knob variables, updated at control rate
-  float freqBase = 0.f;
-  float pmAmt = 0.f;
+  float freqBaseHz = 0.f;
+  float pmBaseAmt = 0.f;
   float phaseOffset = 0.f;
 
   // Phase state
@@ -87,10 +87,10 @@ struct Phasor : Module {
 
   void updateControlRate() {
     // Get knobs
-    freqBase = dsp::FREQ_C4 * std::powf(2.f, params[FREQ_PARAM].getValue());
+    freqBaseHz = dsp::FREQ_C4 * std::powf(2.f, params[FREQ_PARAM].getValue());
 
-    float x = params[PM_AMT_PARAM].getValue();
-    pmAmt = x * x;
+    float x = params[PM_PARAM].getValue();
+    pmBaseAmt = x * x;
 
     phaseOffset = params[PHASE_OFFSET_PARAM].getValue();
   }
@@ -112,7 +112,7 @@ struct Phasor : Module {
       for (int c = 0; c < channels; c += 4) {
         int block = c / 4;
         // Phasor
-        float_4 hz = voct_to_hz(freqBase, inputs[VOCT_INPUT].getNormalPolyVoltageSimd<float_4>(0.f, c));
+        float_4 hz = voct_to_hz(freqBaseHz, inputs[VOCT_INPUT].getNormalPolyVoltageSimd<float_4>(0.f, c));
 
         float_4 p = phasor(phases[block], hz, args.sampleRate);
         phases[block] = resetPhase(block, inputs[RESET_INPUT].getPolyVoltageSimd<float_4>(c), p);
@@ -120,10 +120,10 @@ struct Phasor : Module {
         wrap(p);
 
         // Phase modulation
-        float_4 pmSrc = inputs[PM_INPUT].getPolyVoltageSimd<float_4>(c);
-        float_4 pmVCA = inputs[PM_VCA_INPUT].getNormalPolyVoltageSimd<float_4>(10.f, c) * 0.1f;
+        float_4 pmCV = inputs[PM_INPUT].getPolyVoltageSimd<float_4>(c);
+        float_4 pmCVAmt = inputs[PM_CV_AMT_INPUT].getNormalPolyVoltageSimd<float_4>(10.f, c) * 0.1f;
 
-        p = phaseMod(p, pmSrc * pmAmt * pmVCA);
+        p = phaseMod(p, pmCV * pmBaseAmt * pmCVAmt);
 
         outputs[PHASE_OUTPUT].setVoltageSimd(simd::clamp(p * 10.f, -12.f, 12.f), c);
       }
@@ -142,10 +142,10 @@ struct PhasorWidget : ModuleWidget {
     addChild(createWidget<ScrewBlack>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 
     addParam(createParamCentered<RoundBlackKnob>(mm2px(Vec(7.62, 19.05)), module, Phasor::FREQ_PARAM));
-    addParam(createParamCentered<RoundBlackKnob>(mm2px(Vec(7.62, 33.02)), module, Phasor::PM_AMT_PARAM));
+    addParam(createParamCentered<RoundBlackKnob>(mm2px(Vec(7.62, 33.02)), module, Phasor::PM_PARAM));
     addParam(createParamCentered<RoundBlackKnob>(mm2px(Vec(7.62, 46.99)), module, Phasor::PHASE_OFFSET_PARAM));
 
-    addInput(createInputCentered<DarkPJ301MPort>(mm2px(Vec(7.62, 64.77)), module, Phasor::PM_VCA_INPUT));
+    addInput(createInputCentered<DarkPJ301MPort>(mm2px(Vec(7.62, 64.77)), module, Phasor::PM_CV_AMT_INPUT));
     addInput(createInputCentered<DarkPJ301MPort>(mm2px(Vec(7.62, 77.47)), module, Phasor::PM_INPUT));
     addInput(createInputCentered<DarkPJ301MPort>(mm2px(Vec(7.62, 90.17)), module, Phasor::RESET_INPUT));
     addInput(createInputCentered<DarkPJ301MPort>(mm2px(Vec(7.62, 102.87)), module, Phasor::VOCT_INPUT));

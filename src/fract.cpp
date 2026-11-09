@@ -47,8 +47,8 @@ struct Fract : Module {
   bool snapDenom = true;
 
   // Knob variables, updated at control rate
-  float num = 1.f;
-  float denom = 1.f;
+  float numParam = 1.f;
+  float denomParam = 1.f;
 
   void applySnap() {
     getParamQuantity(NUM_PARAM)->snapEnabled = snapNum;
@@ -63,8 +63,8 @@ struct Fract : Module {
 
   void updateControlRate() {
     // Get knobs
-    num = params[NUM_PARAM].getValue();
-    denom = params[DENOM_PARAM].getValue();
+    numParam = params[NUM_PARAM].getValue();
+    denomParam = params[DENOM_PARAM].getValue();
   }
 
   void process(const ProcessArgs& args) override {
@@ -91,8 +91,8 @@ struct Fract : Module {
 
         float_4 denomMod = inputs[DENOM_INPUT].getNormalPolyVoltageSimd<float_4>(0.f, c) * 10.f;
 
-        float_4 ratio = simd::clamp(num + numMod, 1.f, 100.f) /
-                        simd::clamp(denom + denomMod, 1.f, 100.f);
+        float_4 ratio = simd::clamp(numParam + numMod, 1.f, 100.f) /
+                        simd::clamp(denomParam + denomMod, 1.f, 100.f);
 
         // Add them all
         float_4 v =

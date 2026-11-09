@@ -31,9 +31,9 @@ struct Tuner : Module {
   bool snapRatio = true;
 
   // Knob variables, updated at control rate
-  float semisParamV = 0.f;
-  float centsParamV = 0.f;
-  float ratioKnob = 0.f;
+  float semisBaseV = 0.f;
+  float centsBaseV = 0.f;
+  float ratioParam = 0.f;
 
   Tuner() {
     config(PARAMS_LEN, INPUTS_LEN, OUTPUTS_LEN, LIGHTS_LEN);
@@ -66,9 +66,9 @@ struct Tuner : Module {
 
   void updateControlRate() {
     // Get knobs
-    semisParamV = params[SEMIS_PARAM].getValue() / 12.f;
-    centsParamV = params[CENTS_PARAM].getValue() / 1200.f;
-    ratioKnob = params[RATIO_PARAM].getValue();
+    semisBaseV = params[SEMIS_PARAM].getValue() / 12.f;
+    centsBaseV = params[CENTS_PARAM].getValue() / 1200.f;
+    ratioParam = params[RATIO_PARAM].getValue();
   }
 
   void process(const ProcessArgs& args) override {
@@ -89,16 +89,17 @@ struct Tuner : Module {
 
       // Per Channel, per sample
       for (int c = 0; c < channels; c += 4) {
-        // Semitones + Cents
+        // Semitones + Cents, in volts
         float_4 semiCentsV =
-            inputs[CENTS_INPUT].getNormalPolyVoltageSimd<float_4>(0.f, c) / 60.f + semisParamV + centsParamV;
+            inputs[CENTS_INPUT].getNormalPolyVoltageSimd<float_4>(0.f, c) / 60.f + semisBaseV + centsBaseV;
         semiCentsV = simd::clamp(semiCentsV, -12.f, 12.f);
 
         // Ratio
-        float_4 ratioIn =
+        float_4 ratioMod =
             inputs[RATIO_INPUT].getNormalPolyVoltageSimd<float_4>(0.f, c) * 6.4;
-        ratioIn = snapRatio ? simd::round(ratioIn) : ratioIn;
-        float_4 ratio = ratioKnob + ratioIn;
+        ratioMod = snapRatio ? simd::round(ratioMod) : ratioMod;
+
+        float_4 ratio = ratioParam + ratioMod;
         ratio = simd::clamp(ratio, 1.f, 32.f);
 
         // Add them all
