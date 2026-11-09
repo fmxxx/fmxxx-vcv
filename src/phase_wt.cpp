@@ -42,7 +42,7 @@ struct Phase_wt : Module {
     configParam(WAVESIZE_PARAM, 4.f, 12.f, 8.f, "Wave Size", " samples", 2.f);
 
     configSwitch(PD_TYPE_PARAM, 0.f, 10.f, 0.f, "Distortion Type",
-                 {"Horizontal Skew", "Bend", "Pinch", "RampTri", "RampRev", "Mirror", "Mute", "Formant", "Power2", "Aliased Quantize", "Bypass"});
+                 {"Horizontal Skew", "Bend", "Pinch", "RampTri", "RampRev", "Mirror", "Mute", "Formant", "Power2", "Aliased Quantize", "Cubic Pulse"});
     configSwitch(DO_MORPH_PARAM, 0.f, 1.f, 1.f, "Morph", {"OFF", "ON"});
     configSwitch(LFOVCO_PARAM, 0.f, 1.f, 1.f, "Mode", {"LFO (No anti-aliasing)", "VCO (Anti-aliased)"});
 
@@ -86,7 +86,7 @@ struct Phase_wt : Module {
       formant,
       powr2,
       aliasQuantize,
-      passthrough,
+      cubicPulse,
   };
 
   enum class PDist { HorSkew,
@@ -99,7 +99,7 @@ struct Phase_wt : Module {
                      Formant,
                      Power2,
                      Quantize,
-                     Bypass };
+                     CubicPulse };
 
   PDistFn currentPD = hSkew;
 

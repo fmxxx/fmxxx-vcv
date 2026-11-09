@@ -186,6 +186,40 @@ inline float_4 pinch(float_4 phase, float_4 dist) {
   return simd::ifelse(p < 0.5f, low, high);
 }
 
+// Creates a window based on the function from Iñigo Quiles
+//  https://iquilezles.org/articles/functions/
+// Adpated to use linear interpolation from the incoming phase signal
+// To the pulse function
+inline float_4 cubicPulse(float_4 phase, float_4 dist) {
+  const float_4 d = simd::clamp(dist, 0.f, 1.f);
+  const float_4 x = simd::clamp(wrap(phase), 0.f, 1.f);
+
+  // Distance from the knob center (0.5), normalized [0, 1]
+  //   0 at d=0.5, 0.5 at d=0.75 or d=0.25, 1 at d=0 or d=1
+  const float_4 sideDist = simd::fabs(d - 0.5f) * 2.f;
+
+  // Stage 1 — lerp: 0 until d=0.5, 1 at d=0.75 (and stays 1 beyond)
+  const float_4 amount = simd::fmin(sideDist * 2.f, 1.f);
+
+  // Stage 2 — narrow: 0 until d=0.75, then ramps to 1 at d=1 (mirrored on low side)
+  const float_4 narrow = simd::fmax(sideDist * 2.f - 1.f, 0.f);
+
+  // Pulse width: 0.4 at transition end, narrowing to 0.05 at the edges
+  const float_4 width = 0.4f - 0.35f * narrow;
+
+  // Cubic pulse shape (pulse = 0 outside [0.5-width, 0.5+width])
+  const float_4 p = simd::fabs(x - 0.5f);
+  const float_4 pn = p / width;
+  const float_4 pulse = simd::ifelse(p > width, 0.f,
+                                     1.f - pn * pn * (3.f - 2.f * pn));
+  // Direction (high side = pulse, low side = notch)
+  const float_4 sign = simd::ifelse(d >= 0.5f, 1.f, -1.f);
+  const float_4 target = 0.5f + sign * (pulse - 0.5f);
+
+  // Blend identity with target
+  return x + amount * (target - x);
+}
+
 inline float_4 passthrough(const float_4 phase, const float_4 dist) {
   return phase;
 }
