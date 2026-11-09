@@ -24,15 +24,6 @@
       ]
     },
     {
-      "slug": "wt",
-      "name": "wt",
-      "description": "Wavetable with phase distortion and modulation.",
-      "tags": [
-        "oscillator",
-        "polyphonic"
-      ]
-    },
-    {
       "slug": "phasor",
       "name": "Phasor",
       "description": "Generates a phase ramp based on a V/Oct signal. Include FM(PM)",
@@ -57,6 +48,16 @@
       "description": "Takes a phase as input and applies different distortion algorithms to it",
       "tags": [
         "phase",
+        "polyphonic"
+      ]
+    },
+    {
+      "slug": "fract",
+      "name": "Fract",
+      "description": "Ratio tuner that uses fractions, with numerator and denominator knobs and CV",
+      "tags": [
+        "tuner",
+        "utility",
         "polyphonic"
       ]
     }

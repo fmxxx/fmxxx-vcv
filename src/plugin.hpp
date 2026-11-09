@@ -7,7 +7,7 @@ using namespace rack;
 extern Plugin* pluginInstance;
 
 extern Model* modelTuner;
-extern Model* modelWt;
 extern Model* modelPhasor;
 extern Model* modelPhase_wt;
 extern Model* modelPhase_dist;
+extern Model* modelFract;

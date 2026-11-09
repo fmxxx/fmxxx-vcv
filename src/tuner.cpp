@@ -24,8 +24,16 @@ struct Tuner : Module {
     LIGHTS_LEN
   };
 
+  int controlRateCounter = 0;
+  const int CONTROL_RATE_INTERVAL = 32;
+
   bool snapSemis = true;
   bool snapRatio = true;
+
+  // Knob variables, updated at control rate
+  float semisBaseV = 0.f;
+  float centsBaseV = 0.f;
+  float ratioParam = 0.f;
 
   Tuner() {
     config(PARAMS_LEN, INPUTS_LEN, OUTPUTS_LEN, LIGHTS_LEN);
@@ -41,6 +49,8 @@ struct Tuner : Module {
     configInput(CENTS_INPUT, "Cents CV (±5V = ±1 semi)");
 
     configOutput(VOCT_OUTPUT, "V/Oct");
+
+    updateControlRate();
   }
 
   void applySnap() {
@@ -54,23 +64,49 @@ struct Tuner : Module {
     return outputs[VOCT_OUTPUT].isConnected();
   }
 
+  void updateControlRate() {
+    // Get knobs
+    semisBaseV = params[SEMIS_PARAM].getValue() / 12.f;
+    centsBaseV = params[CENTS_PARAM].getValue() / 1200.f;
+    ratioParam = params[RATIO_PARAM].getValue();
+  }
+
   void process(const ProcessArgs& args) override {
-    int channels = inputs[VOCT_1_INPUT].getChannels();
-    channels = std::max(inputs[VOCT_2_INPUT].getChannels(), channels);
-    channels = std::max(inputs[CENTS_INPUT].getChannels(), channels);
-    channels = std::max(inputs[RATIO_INPUT].getChannels(), channels);
-    outputs[VOCT_OUTPUT].setChannels(channels);
-
-    float semisVoltage = params[SEMIS_PARAM].getValue() / 12.f;
-    float centsVoltage = params[CENTS_PARAM].getValue() / 1200.f;
-    float ratioKnob = params[RATIO_PARAM].getValue();
-
     if (this->isActive()) {
+      int channels = inputs[VOCT_1_INPUT].getChannels();
+      channels = std::max(inputs[VOCT_2_INPUT].getChannels(), channels);
+      channels = std::max(inputs[CENTS_INPUT].getChannels(), channels);
+      channels = std::max(inputs[RATIO_INPUT].getChannels(), channels);
+      channels = std::max(1, channels);
+      outputs[VOCT_OUTPUT].setChannels(channels);
+
+      // Control Rate
+      if (controlRateCounter <= 0) {
+        controlRateCounter = CONTROL_RATE_INTERVAL;
+        updateControlRate();
+      }
+      controlRateCounter--;
+
+      // Per Channel, per sample
       for (int c = 0; c < channels; c += 4) {
-        float_4 ratio = ratioKnob + inputs[RATIO_INPUT].getPolyVoltageSimd<float_4>(c) * 6.4f;
+        // Semitones + Cents, in volts
+        float_4 semiCentsV =
+            inputs[CENTS_INPUT].getNormalPolyVoltageSimd<float_4>(0.f, c) / 60.f + semisBaseV + centsBaseV;
+        semiCentsV = simd::clamp(semiCentsV, -12.f, 12.f);
+
+        // Ratio
+        float_4 ratioMod =
+            inputs[RATIO_INPUT].getNormalPolyVoltageSimd<float_4>(0.f, c) * 6.4;
+        ratioMod = snapRatio ? simd::round(ratioMod) : ratioMod;
+
+        float_4 ratio = ratioParam + ratioMod;
         ratio = simd::clamp(ratio, 1.f, 32.f);
 
-        float_4 v = inputs[VOCT_1_INPUT].getPolyVoltageSimd<float_4>(c) + inputs[VOCT_2_INPUT].getPolyVoltageSimd<float_4>(c) + inputs[CENTS_INPUT].getPolyVoltageSimd<float_4>(c) / 60.f + semisVoltage + centsVoltage + simd::log2(ratio);
+        // Add them all
+        float_4 v =
+            inputs[VOCT_1_INPUT].getNormalPolyVoltageSimd<float_4>(0.f, c) +
+            inputs[VOCT_2_INPUT].getNormalPolyVoltageSimd<float_4>(0.f, c) +
+            semiCentsV + simd::log2(ratio);
 
         outputs[VOCT_OUTPUT].setVoltageSimd(simd::clamp(v, -12.f, 12.f), c);
       }
