@@ -33,9 +33,9 @@ struct Phase_dist : Module {
 
     configSwitch(PD_TYPE_PARAM, 0.f, 10.f, 0.f, "Distortion Type",
                  {"Horizontal Skew", "Bend", "Pinch", "RampTri", "RampRev", "Mirror", "Mute", "Formant", "Power2", "Aliased Quantize", "Bypass"});
-    getParamQuantity(PD_TYPE_PARAM)->snapEnabled = true;
-
     configParam(PD_CV_AMT_PARAM, -1.f, 1.f, 0.f, "Phase Distortion CV", "%", 0.f, 100.f);
+
+    applySnap();
 
     configInput(PD_INPUT, "Phase Distortion Mod (Offset, -5V +5V)");
     configInput(PD_TYPE_INPUT, "PD Type (Mono, Overrides Knob, 0V +10V)");
@@ -80,6 +80,10 @@ struct Phase_dist : Module {
                      Bypass };
 
   PDistFn currentPD = hSkew;
+
+  void applySnap() {
+    getParamQuantity(PD_TYPE_PARAM)->snapEnabled = true;
+  }
 
   bool isActive() {
     return outputs[PHASE_OUTPUT].isConnected();
