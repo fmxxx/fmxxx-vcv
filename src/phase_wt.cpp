@@ -175,18 +175,19 @@ struct Phase_wtWidget : ModuleWidget {
     setModule(module);
     setPanel(createPanel(asset::plugin(pluginInstance, "res/phase_wt.svg")));
 
-    addChild(createWidget<ScrewBlack>(Vec(RACK_GRID_WIDTH, 0)));
-    addChild(createWidget<ScrewBlack>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, 0)));
-    addChild(createWidget<ScrewBlack>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
-    addChild(createWidget<ScrewBlack>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
+    addChild(createWidget<ScrewSilver>(Vec(RACK_GRID_WIDTH, 0)));
+    addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, 0)));
+    addChild(createWidget<ScrewSilver>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
+    addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 
-    addParam(createParamCentered<RoundBlackKnob>(mm2px(Vec(7.62, 35.56)), module, Phase_wt::WTPOS_PARAM));
-    addParam(createParamCentered<RoundBlackKnob>(mm2px(Vec(22.86, 35.56)), module, Phase_wt::PD_PARAM));
-    addParam(createParamCentered<RoundBlackKnob>(mm2px(Vec(7.62, 50.8)), module, Phase_wt::WAVESIZE_PARAM));
-    addParam(createParamCentered<RoundBlackKnob>(mm2px(Vec(22.86, 50.8)), module, Phase_wt::PD_TYPE_PARAM));
+    addParam(createParamCentered<RoundBlackKnob>(mm2px(Vec(7.62, 40.64)), module, Phase_wt::WTPOS_PARAM));
+    addParam(createParamCentered<RoundBlackKnob>(mm2px(Vec(22.86, 40.64)), module, Phase_wt::PD_PARAM));
 
-    addParam(createParamCentered<CKSS>(mm2px(Vec(7.62, 66.04)), module, Phase_wt::DO_MORPH_PARAM));
-    addParam(createParamCentered<CKSS>(mm2px(Vec(22.86, 66.04)), module, Phase_wt::LFOVCO_PARAM));
+    addParam(createParamCentered<RoundSmallBlackKnob>(mm2px(Vec(7.62, 54.61)), module, Phase_wt::WAVESIZE_PARAM));
+    addParam(createParamCentered<RoundSmallBlackKnob>(mm2px(Vec(22.86, 54.61)), module, Phase_wt::PD_TYPE_PARAM));
+
+    addParam(createParamCentered<CKSS>(mm2px(Vec(7.62, 67.31)), module, Phase_wt::DO_MORPH_PARAM));
+    addParam(createParamCentered<CKSS>(mm2px(Vec(22.86, 67.31)), module, Phase_wt::LFOVCO_PARAM));
 
     addParam(createParamCentered<Trimpot>(mm2px(Vec(7.634, 78.73)), module, Phase_wt::WTPOS_CV_AMT_PARAM));
     addParam(createParamCentered<Trimpot>(mm2px(Vec(22.86, 78.74)), module, Phase_wt::PD_CV_AMT_PARAM));
