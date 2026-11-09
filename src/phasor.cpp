@@ -39,7 +39,7 @@ struct Phasor : Module {
     configInput(PM_INPUT, "Phase Modulation (Offset, -5V +5V)");
     configInput(RESET_INPUT, "Reset Trigger (≥ 1V)");
     configInput(VOCT_INPUT, "V/Oct");
-    configOutput(PHASE_OUTPUT, "Phase [0V, 10V)");
+    configOutput(PHASE_OUTPUT, "Phase (0V, 10V)");
 
     updateControlRate();
   }

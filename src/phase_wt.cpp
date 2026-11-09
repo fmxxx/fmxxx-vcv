@@ -53,7 +53,7 @@ struct Phase_wt : Module {
 
     configInput(PD_INPUT, "Phase Distortion Mod (Offset, -5V +5V)");
     configInput(WTPOS_INPUT, "Wavetable Position Mod (Offset, -5V +5V)");
-    configInput(PHASE_INPUT, "Wavetable Phase [0V, 10V)");
+    configInput(PHASE_INPUT, "Wavetable Phase (0V, 10V)");
     configInput(PD_TYPE_INPUT, "PD Type (Mono, Overrides Knob, 0V +10V)");
 
     configOutput(PHASE_OUTPUT, "Processed Phase Output (0V +10V)");

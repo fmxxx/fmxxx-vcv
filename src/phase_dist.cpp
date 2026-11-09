@@ -39,9 +39,9 @@ struct Phase_dist : Module {
 
     configInput(PD_INPUT, "Phase Distortion Mod (Offset, -5V +5V)");
     configInput(PD_TYPE_INPUT, "PD Type (Mono, Overrides Knob, 0V +10V)");
-    configInput(PHASE_INPUT, "Phase [0V, 10V)");
+    configInput(PHASE_INPUT, "Phase (0V, 10V)");
 
-    configOutput(PHASE_OUTPUT, "Phase [0V, 10V)");
+    configOutput(PHASE_OUTPUT, "Phase (0V, 10V)");
 
     updateControlRate();
   }
