@@ -11,3 +11,4 @@ extern Model* modelPhasor;
 extern Model* modelPhase_wt;
 extern Model* modelPhase_dist;
 extern Model* modelFract;
+extern Model* modelCompar;

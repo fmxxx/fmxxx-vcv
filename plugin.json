@@ -60,6 +60,14 @@
         "utility",
         "polyphonic"
       ]
+    },
+    {
+      "slug": "compar",
+      "name": "Compar",
+      "description": "Takes two inputs, compares them within 3 decimal points of precision, and outputs booleans (0V 10V)",
+      "tags": [
+        "utility"
+      ]
     }
   ]
 }
