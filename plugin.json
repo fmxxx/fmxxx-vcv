@@ -68,6 +68,14 @@
       "tags": [
         "utility"
       ]
+    },
+    {
+      "slug": "num2bits",
+      "name": "Number To Bits",
+      "description": "Takes CV from 0V to 10V, normalizes to [0,, 127] and outputs the bits that make up that number in binary",
+      "tags": [
+        "utility"
+      ]
     }
   ]
 }
