@@ -140,6 +140,8 @@ struct Phase_wt : Module {
       channels = std::max(inputs[WTPOS_INPUT].getChannels(), channels);
       channels = std::max(inputs[PD_INPUT].getChannels(), channels);
       channels = std::max(1, channels);
+
+      outputs[PHASE_OUTPUT].setChannels(channels);
       outputs[AUDIO_OUTPUT].setChannels(channels);
 
       // Control Rate
