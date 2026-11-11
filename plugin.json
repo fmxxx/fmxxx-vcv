@@ -97,6 +97,16 @@
         "utility",
         "polyphonic"
       ]
+    },
+    {
+      "slug": "mixvca",
+      "name": "Mix VCA",
+      "description": "8 channel mixer with level inputs",
+      "tags": [
+        "utility",
+        "mixer",
+        "polyphonic"
+      ]
     }
   ]
 }

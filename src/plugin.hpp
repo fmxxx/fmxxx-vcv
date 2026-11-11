@@ -15,3 +15,4 @@ extern Model* modelCompar;
 extern Model* modelNum2bits;
 extern Model* modelXy;
 extern Model* modelAdapt;
+extern Model* modelMixvca;
