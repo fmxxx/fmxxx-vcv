@@ -16,7 +16,7 @@
     {
       "slug": "tuner",
       "name": "Tuner",
-      "description": "Tune V/Oct to Semis, Cents and Ratio",
+      "description": "Tuner with remis, cents and ratio",
       "tags": [
         "utility",
         "tuner",
@@ -26,10 +26,11 @@
     {
       "slug": "phasor",
       "name": "Phasor",
-      "description": "Generates a phase ramp based on a V/Oct signal. Include FM(PM)",
+      "description": "Tunable phase generator with PM",
       "tags": [
         "phase",
         "oscillator",
+        "lfo",
         "polyphonic"
       ]
     },
@@ -38,6 +39,7 @@
       "name": "Phase_wt",
       "description": "Phase driven wavetable oscillator",
       "tags": [
+        "phase",
         "oscillator",
         "polyphonic"
       ]
@@ -45,7 +47,7 @@
     {
       "slug": "phase_dist",
       "name": "Phase Distortion",
-      "description": "Takes a phase as input and applies different distortion algorithms to it",
+      "description": "Phase distortion module",
       "tags": [
         "phase",
         "polyphonic"
@@ -54,25 +56,35 @@
     {
       "slug": "fract",
       "name": "Fract",
-      "description": "Ratio tuner that uses fractions, with numerator and denominator knobs and CV",
+      "description": "Ratio tuner based on fractions.",
       "tags": [
-        "tuner",
         "utility",
+        "tuner",
         "polyphonic"
       ]
     },
     {
       "slug": "compar",
       "name": "Compar",
-      "description": "Takes two inputs, compares them within 3 decimal points of precision, and outputs booleans (0V 10V)",
+      "description": "Voltage comparator, quantized to mV.",
       "tags": [
-        "utility"
+        "utility",
+        "polyphonic"
       ]
     },
     {
       "slug": "num2bits",
       "name": "Number To Bits",
-      "description": "Takes CV from 0V to 10V, normalizes to [0,, 127] and outputs the bits that make up that number in binary",
+      "description": "CV to 7 bit binary.",
+      "tags": [
+        "utility",
+        "polyphonic"
+      ]
+    },
+    {
+      "slug": "xy",
+      "name": "XY Pad",
+      "description": "XY Pad with 4 movable dots.",
       "tags": [
         "utility"
       ]

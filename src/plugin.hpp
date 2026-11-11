@@ -13,3 +13,4 @@ extern Model* modelPhase_dist;
 extern Model* modelFract;
 extern Model* modelCompar;
 extern Model* modelNum2bits;
+extern Model* modelXy;
