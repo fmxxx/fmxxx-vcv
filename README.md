@@ -11,6 +11,8 @@
 	Can be used as a waveshaper to process audio singals, in that case use the Adapter module (AUDIO -> Bi to Uni -> PD -> Uni to Bi). If you notice clicking in some algorithms just lower the volume before it goes into the module.
 + Adapter
 	Adapts voltages from Unipolar to Bipolar and vice-versa.
++ Mix VCA
+	An channel polyphonic mixer with level inputs. Change it to "Control" mode to turn off the saturator and enable hard clipping.
 
 
 ## Oscillators 
