@@ -8,8 +8,9 @@
 + Mathy (+, -, *, /, pow, mod) [Poly]
 + Phase Distortion [Poly]
 	Can be placed before a Phase_WT to modulate the waveform shape or before a Buffr to change the write/read heads for intereseting effects.
-	Can be used to process audio singals, in that case, make sure to offset them by +5V, scale it down a little, then offset back down -5V.
-	
+	Can be used as a waveshaper to process audio singals, in that case use the Adapter module (AUDIO -> Bi to Uni -> PD -> Uni to Bi). If you notice clicking in some algorithms just lower the volume before it goes into the module.
++ Adapter
+	Adapts voltages from Unipolar to Bipolar and vice-versa.
 
 
 ## Oscillators 

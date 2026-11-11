@@ -88,6 +88,15 @@
       "tags": [
         "utility"
       ]
+    },
+    {
+      "slug": "adapt",
+      "name": "Adapter",
+      "description": "Convert voltage ranges",
+      "tags": [
+        "utility",
+        "polyphonic"
+      ]
     }
   ]
 }
