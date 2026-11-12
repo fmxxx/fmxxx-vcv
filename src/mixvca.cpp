@@ -128,7 +128,7 @@ struct Mixvca : Module {
           const float_4 chOut = chIn * chLevel;
 
           mix[c / 4] += chOut;
-          outputs[outId].setVoltageSimd<float_4>(simd::clamp(chOut, -12.f, 12.f), c);
+          outputs[outId].setVoltageSimd(simd::clamp(chOut, -12.f, 12.f), c);
         }
       }
     }
@@ -145,7 +145,7 @@ struct Mixvca : Module {
         const float_4 mainLevel = mainLevelParam * mainLevelMod;
         const float_4 mainOut = mix[c / 4] * mainLevel;
 
-        outputs[MAIN_OUTPUT].setVoltageSimd<float_4>(simd::clamp(mainOut, -12.f, 12.f), c);
+        outputs[MAIN_OUTPUT].setVoltageSimd(simd::clamp(mainOut, -12.f, 12.f), c);
       }
     }
   }

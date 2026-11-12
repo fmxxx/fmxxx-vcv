@@ -45,7 +45,7 @@ struct Adapt : Module {
 
       for (int c = 0; c < channelsA; c += 4) {
         float_4 v = inputs[A_INPUT].getPolyVoltageSimd<float_4>(c) - 5.f;
-        outputs[A_OUTPUT].setVoltageSimd<float_4>(simd::clamp(v, -12.f, 12.f), c);
+        outputs[A_OUTPUT].setVoltageSimd(simd::clamp(v, -12.f, 12.f), c);
       }
     }
 
@@ -55,7 +55,7 @@ struct Adapt : Module {
 
       for (int c = 0; c < channelsB; c += 4) {
         float_4 v = inputs[B_INPUT].getPolyVoltageSimd<float_4>(c) - 5.f;
-        outputs[B_OUTPUT].setVoltageSimd<float_4>(simd::clamp(v, -12.f, 12.f), c);
+        outputs[B_OUTPUT].setVoltageSimd(simd::clamp(v, -12.f, 12.f), c);
       }
     }
 
@@ -66,7 +66,7 @@ struct Adapt : Module {
 
       for (int c = 0; c < channelsC; c += 4) {
         float_4 v = inputs[C_INPUT].getPolyVoltageSimd<float_4>(c) + 5.f;
-        outputs[C_OUTPUT].setVoltageSimd<float_4>(simd::clamp(v, -12.f, 12.f), c);
+        outputs[C_OUTPUT].setVoltageSimd(simd::clamp(v, -12.f, 12.f), c);
       }
     }
 
@@ -76,7 +76,7 @@ struct Adapt : Module {
 
       for (int c = 0; c < channelsD; c += 4) {
         float_4 v = inputs[D_INPUT].getPolyVoltageSimd<float_4>(c) + 5.f;
-        outputs[D_OUTPUT].setVoltageSimd<float_4>(simd::clamp(v, -12.f, 12.f), c);
+        outputs[D_OUTPUT].setVoltageSimd(simd::clamp(v, -12.f, 12.f), c);
       }
     }
   }
