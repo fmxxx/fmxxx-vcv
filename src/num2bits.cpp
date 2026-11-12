@@ -87,20 +87,20 @@ struct Num2bitsWidget : ModuleWidget {
     setModule(module);
     setPanel(createPanel(asset::plugin(pluginInstance, "res/num2bits.svg")));
 
-    addChild(createWidget<ScrewSilver>(Vec(RACK_GRID_WIDTH, 0)));
-    addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, 0)));
-    addChild(createWidget<ScrewSilver>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
-    addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
+    addChild(createWidget<ScrewBlack>(Vec(RACK_GRID_WIDTH, 0)));
+    addChild(createWidget<ScrewBlack>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, 0)));
+    addChild(createWidget<ScrewBlack>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
+    addChild(createWidget<ScrewBlack>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 
-    addInput(createInputCentered<PJ301MPort>(mm2px(Vec(7.62, 17.78)), module, Num2bits::X_INPUT));
+    addInput(createInputCentered<DarkPJ301MPort>(mm2px(Vec(7.62, 17.78)), module, Num2bits::X_INPUT));
 
-    addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(7.62, 40.64)), module, Num2bits::P64_OUTPUT));
-    addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(7.62, 53.34)), module, Num2bits::P32_OUTPUT));
-    addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(7.62, 66.04)), module, Num2bits::P16_OUTPUT));
-    addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(7.62, 78.74)), module, Num2bits::P8_OUTPUT));
-    addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(7.62, 91.44)), module, Num2bits::P4_OUTPUT));
-    addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(7.62, 104.14)), module, Num2bits::P2_OUTPUT));
-    addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(7.62, 116.84)), module, Num2bits::P1_OUTPUT));
+    addOutput(createOutputCentered<DarkPJ301MPort>(mm2px(Vec(7.62, 40.64)), module, Num2bits::P64_OUTPUT));
+    addOutput(createOutputCentered<DarkPJ301MPort>(mm2px(Vec(7.62, 53.34)), module, Num2bits::P32_OUTPUT));
+    addOutput(createOutputCentered<DarkPJ301MPort>(mm2px(Vec(7.62, 66.04)), module, Num2bits::P16_OUTPUT));
+    addOutput(createOutputCentered<DarkPJ301MPort>(mm2px(Vec(7.62, 78.74)), module, Num2bits::P8_OUTPUT));
+    addOutput(createOutputCentered<DarkPJ301MPort>(mm2px(Vec(7.62, 91.44)), module, Num2bits::P4_OUTPUT));
+    addOutput(createOutputCentered<DarkPJ301MPort>(mm2px(Vec(7.62, 104.14)), module, Num2bits::P2_OUTPUT));
+    addOutput(createOutputCentered<DarkPJ301MPort>(mm2px(Vec(7.62, 116.84)), module, Num2bits::P1_OUTPUT));
   }
 };
 

@@ -77,20 +77,20 @@ struct ComparWidget : ModuleWidget {
     setModule(module);
     setPanel(createPanel(asset::plugin(pluginInstance, "res/compar.svg")));
 
-    addChild(createWidget<ScrewSilver>(Vec(RACK_GRID_WIDTH, 0)));
-    addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, 0)));
-    addChild(createWidget<ScrewSilver>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
-    addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
+    addChild(createWidget<ScrewBlack>(Vec(RACK_GRID_WIDTH, 0)));
+    addChild(createWidget<ScrewBlack>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, 0)));
+    addChild(createWidget<ScrewBlack>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
+    addChild(createWidget<ScrewBlack>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 
-    addInput(createInputCentered<PJ301MPort>(mm2px(Vec(7.62, 17.78)), module, Compar::A_INPUT));
-    addInput(createInputCentered<PJ301MPort>(mm2px(Vec(7.62, 30.48)), module, Compar::B_INPUT));
+    addInput(createInputCentered<DarkPJ301MPort>(mm2px(Vec(7.62, 17.78)), module, Compar::A_INPUT));
+    addInput(createInputCentered<DarkPJ301MPort>(mm2px(Vec(7.62, 30.48)), module, Compar::B_INPUT));
 
-    addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(7.62, 53.34)), module, Compar::EQUAL_OUTPUT));
-    addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(7.62, 66.04)), module, Compar::NOTEQUAL_OUTPUT));
-    addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(7.62, 78.74)), module, Compar::GREATER_OUTPUT));
-    addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(7.62, 91.44)), module, Compar::GREATEQ_OUTPUT));
-    addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(7.62, 104.14)), module, Compar::LESSER_OUTPUT));
-    addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(7.62, 116.84)), module, Compar::LESSEQ_OUTPUT));
+    addOutput(createOutputCentered<DarkPJ301MPort>(mm2px(Vec(7.62, 53.34)), module, Compar::EQUAL_OUTPUT));
+    addOutput(createOutputCentered<DarkPJ301MPort>(mm2px(Vec(7.62, 66.04)), module, Compar::NOTEQUAL_OUTPUT));
+    addOutput(createOutputCentered<DarkPJ301MPort>(mm2px(Vec(7.62, 78.74)), module, Compar::GREATER_OUTPUT));
+    addOutput(createOutputCentered<DarkPJ301MPort>(mm2px(Vec(7.62, 91.44)), module, Compar::GREATEQ_OUTPUT));
+    addOutput(createOutputCentered<DarkPJ301MPort>(mm2px(Vec(7.62, 104.14)), module, Compar::LESSER_OUTPUT));
+    addOutput(createOutputCentered<DarkPJ301MPort>(mm2px(Vec(7.62, 116.84)), module, Compar::LESSEQ_OUTPUT));
   }
 };
 
