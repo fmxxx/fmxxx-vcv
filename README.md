@@ -12,7 +12,7 @@
 + Adapter
 	Adapts voltages from Unipolar to Bipolar and vice-versa.
 + Mix VCA
-	An channel polyphonic mixer with level inputs. Change it to "Control" mode to turn off the saturator and enable hard clipping.
+	An 8 channel polyphonic mixer that can work as 8 individual VCAs + one on the master. Meant mostly for CV so it has no saturation stage, only a hard clipper (-12V, 12V).
 
 
 ## Oscillators 
