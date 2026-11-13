@@ -1,0 +1,664 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" width="15.24mm" height="128.5mm" viewBox="0 0 15.24 128.5" version="1.1" id="svg1" inkscape:version="1.4 (e7c3feb100, 2024-10-09)" sodipodi:docname="adapt.svg" xml:space="preserve">
+  <sodipodi:namedview id="namedview1" pagecolor="#ffffff" bordercolor="#000000" borderopacity="0.25" inkscape:showpageshadow="2" inkscape:pageopacity="0.0" inkscape:pagecheckerboard="false" inkscape:deskcolor="#d1d1d1" inkscape:document-units="mm" showgrid="false" inkscape:zoom="1.4142136" inkscape:cx="-80.610169" inkscape:cy="267.28635" inkscape:window-width="1920" inkscape:window-height="1016" inkscape:window-x="0" inkscape:window-y="0" inkscape:window-maximized="1" inkscape:current-layer="layer2">
+    <inkscape:grid id="grid1" units="mm" originx="0" originy="0" spacingx="1.27" spacingy="1.27" empcolor="#00ffe9" empopacity="0.8" color="#00ffe9" opacity="0.25098039" empspacing="4" enabled="true" visible="false"/>
+  </sodipodi:namedview>
+  <defs id="defs1">
+    <linearGradient id="paint0_linear" x1="93.372299" y1="75.723297" x2="22.331699" y2="79.353104" gradientUnits="userSpaceOnUse" gradientTransform="matrix(1.7646489,0,0,1.7646489,-22.525233,-74.042617)">
+      <stop offset="0.0480141" stop-color="#595959" id="stop4"/>
+      <stop offset="1" stop-color="#D5D5D5" id="stop5"/>
+    </linearGradient>
+    <linearGradient id="paint1_linear" x1="55" y1="24.895201" x2="55" y2="84.895203" gradientUnits="userSpaceOnUse" gradientTransform="matrix(1.7646489,0,0,1.7646489,-22.525233,-74.042617)">
+      <stop stop-color="#262626" id="stop6"/>
+      <stop offset="1" stop-color="#030303" id="stop7"/>
+    </linearGradient>
+    <marker style="overflow:visible" id="marker1392" refX="0" refY="0" orient="auto" inkscape:stockid="Arrow2Mend" inkscape:isstock="true">
+      <path transform="scale(-0.6)" d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z" style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:0.625;stroke-linejoin:round" id="path1142"/>
+    </marker>
+    <marker style="overflow:visible" id="Arrow1Mend" refX="0" refY="0" orient="auto" inkscape:stockid="Arrow1Mend" inkscape:isstock="true">
+      <path transform="matrix(-0.4,0,0,-0.4,-4,0)" style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt" d="M 0,0 5,-5 -12.5,0 5,5 Z" id="path1124"/>
+    </marker>
+    <marker style="overflow:visible" id="Arrow1Send" refX="0" refY="0" orient="auto" inkscape:stockid="Arrow1Send" inkscape:isstock="true">
+      <path transform="matrix(-0.2,0,0,-0.2,-1.2,0)" style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt" d="M 0,0 5,-5 -12.5,0 5,5 Z" id="path1130"/>
+    </marker>
+    <inkscape:path-effect effect="fillet_chamfer" id="path-effect1113" is_visible="true" lpeversion="1" satellites_param="F,0,0,1,0,0,0,1 @ F,0,0,1,0,2.6458333,0,1 @ F,0,0,1,0,2.6458333,0,1" unit="px" method="auto" mode="F" radius="10" chamfer_steps="1" flexible="false" use_knot_distance="true" apply_no_radius="true" apply_with_radius="true" only_selected="false" hide_knots="false" nodesatellites_param="F,0,0,1,0,0,0,1 @ F,0,0,1,0,2.6458333,0,1 @ F,0,0,1,0,2.6458333,0,1"/>
+    <marker style="overflow:visible" id="Arrow2Mend" refX="0" refY="0" orient="auto" inkscape:stockid="Arrow2Mend" inkscape:isstock="true">
+      <path transform="scale(-0.6)" d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z" style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:0.625;stroke-linejoin:round" id="path59252"/>
+    </marker>
+    <marker style="overflow:visible" id="Arrow1Lend" refX="0" refY="0" orient="auto" inkscape:stockid="Arrow1Lend" inkscape:isstock="true">
+      <path transform="matrix(-0.8,0,0,-0.8,-10,0)" style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt" d="M 0,0 5,-5 -12.5,0 5,5 Z" id="path59228"/>
+    </marker>
+    <marker style="overflow:visible" id="Arrow1Lstart" refX="0" refY="0" orient="auto" inkscape:stockid="Arrow1Lstart" inkscape:isstock="true">
+      <path transform="matrix(0.8,0,0,0.8,10,0)" style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt" d="M 0,0 5,-5 -12.5,0 5,5 Z" id="path59225"/>
+    </marker>
+    <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="14.17379" y1="1.9999999e-05" x2="14.17379" y2="28.347719">
+      <stop offset="0" style="stop-color:#B0ACAE" id="stop17727"/>
+      <stop offset="1" style="stop-color:#000000" id="stop17729"/>
+    </linearGradient>
+    <linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="5.12815" y1="-4117.3818" x2="27.655621" y2="-4117.3818" gradientTransform="rotate(90,-2050.495,-2052.713)">
+      <stop offset="0" style="stop-color:#232223" id="stop17738"/>
+      <stop offset="1" style="stop-color:#1F1E1F" id="stop17740"/>
+    </linearGradient>
+    <clipPath id="SVGID_2_-2">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use7959" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10422">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10420" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10426">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10424" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10430">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10428" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10434">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10432" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10438">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10436" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10442">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10440" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10446">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10444" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10450">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10448" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10454">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10452" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10458">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10456" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10462">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10460" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10466">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10464" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10470">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10468" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10474">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10472" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10478">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10476" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10482">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10480" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10486">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10484" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10490">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10488" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10494">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10492" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10498">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10496" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10502">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10500" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10506">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10504" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10510">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10508" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10514">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10512" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10518">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10516" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10522">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10520" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10526">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10524" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10530">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10528" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10534">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10532" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10538">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10536" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10542">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10540" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10546">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10544" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10550">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10548" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10554">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10552" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10558">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10556" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10562">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10560" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10566">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10564" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10570">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10568" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10574">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10572" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10578">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10576" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10582">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10580" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10586">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10584" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10590">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10588" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10594">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10592" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10598">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10596" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10602">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10600" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10606">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10604" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10610">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10608" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10614">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10612" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10618">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10616" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10622">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10620" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10626">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10624" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10630">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10628" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10634">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10632" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10638">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10636" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10642">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10640" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10646">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10644" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10650">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10648" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10654">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10652" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10658">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10656" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10662">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10660" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10666">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10664" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10670">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10668" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10674">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10672" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10678">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10676" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10682">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10680" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10686">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10684" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10690">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10688" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10694">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10692" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10698">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10696" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10702">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10700" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10706">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10704" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10710">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10708" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10714">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10712" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10718">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10716" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10722">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10720" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10726">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10724" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10730">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10728" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10734">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10732" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10738">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10736" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10742">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10740" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10746">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10744" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10750">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10748" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10754">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10752" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10758">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10756" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10762">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10760" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10766">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10764" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10770">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10768" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10774">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10772" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10778">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10776" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10782">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10780" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10786">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10784" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10790">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10788" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <clipPath id="clipPath10794">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10792" overflow="visible" xlink:href="#SVGID_1_-7"/>
+    </clipPath>
+    <rect x="0" height="8.7469997" width="179.20599" y="23.478001" id="SVGID_1_-7"/>
+    <rect x="0" height="8.7469997" width="179.20599" y="23.478001" id="rect11797"/>
+    <linearGradient gradientUnits="userSpaceOnUse" y2="0" x2="86.400002" y1="364.25198" x1="86.400002" id="linear-gradient" gradientTransform="translate(48.149998,43.624017)">
+      <stop id="stop833" stop-color="#1e1e20" offset="0"/>
+      <stop id="stop835" stop-color="#272729" offset="1"/>
+    </linearGradient>
+    <linearGradient gradientUnits="userSpaceOnUse" y2="364.25198" x2="86.400002" y1="178.53825" x1="86.400002" id="linear-gradient-2" gradientTransform="translate(48.149998,43.624017)">
+      <stop id="stop838" stop-opacity="0" stop-color="#000" offset="0"/>
+      <stop id="stop840" stop-color="#000" offset="1"/>
+    </linearGradient>
+    <clipPath id="SVGID_2_-3">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use7959-6" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10422-0">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10420-6" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10426-2">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10424-6" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10430-1">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10428-8" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10434-7">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10432-9" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10438-2">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10436-0" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10442-2">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10440-3" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10446-7">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10444-5" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10450-9">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10448-2" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10454-2">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10452-8" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10458-9">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10456-7" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10462-3">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10460-6" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10466-1">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10464-2" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10470-9">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10468-3" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10474-1">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10472-9" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10478-4">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10476-7" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10482-8">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10480-4" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10486-5">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10484-0" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10490-3">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10488-6" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10494-1">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10492-0" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10498-6">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10496-3" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10502-2">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10500-0" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10506-6">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10504-1" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10510-5">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10508-5" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10514-4">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10512-7" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10518-6">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10516-5" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10522-6">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10520-9" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10526-3">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10524-7" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10530-4">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10528-5" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10534-2">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10532-5" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10538-4">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10536-7" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10542-4">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10540-4" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10546-3">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10544-0" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10550-7">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10548-8" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10554-6">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10552-8" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10558-8">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10556-4" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10562-3">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10560-1" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10566-4">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10564-9" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10570-2">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10568-0" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10574-6">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10572-8" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10578-9">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10576-2" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10582-6">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10580-6" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10586-4">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10584-9" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10590-5">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10588-0" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10594-4">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10592-8" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10598-7">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10596-1" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10602-7">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10600-2" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10606-7">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10604-2" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10610-2">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10608-6" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10614-1">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10612-0" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10618-6">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10616-1" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10622-5">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10620-9" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10626-4">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10624-9" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10630-0">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10628-9" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10634-1">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10632-7" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10638-7">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10636-1" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10642-1">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10640-5" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10646-9">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10644-7" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10650-7">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10648-6" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10654-7">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10652-3" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10658-6">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10656-5" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10662-6">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10660-3" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10666-9">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10664-4" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10670-8">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10668-1" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10674-2">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10672-9" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10678-3">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10676-9" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10682-0">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10680-8" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10686-8">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10684-5" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10690-0">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10688-9" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10694-6">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10692-3" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10698-8">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10696-5" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10702-6">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10700-1" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10706-1">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10704-5" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10710-9">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10708-8" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10714-4">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10712-8" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10718-1">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10716-0" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10722-3">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10720-0" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10726-4">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10724-4" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10730-4">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10728-4" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10734-7">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10732-6" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10738-3">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10736-1" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10742-7">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10740-5" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10746-9">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10744-6" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10750-2">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10748-1" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10754-7">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10752-8" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10758-5">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10756-7" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10762-4">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10760-1" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10766-8">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10764-5" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10770-9">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10768-7" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10774-5">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10772-3" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10778-8">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10776-8" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10782-3">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10780-1" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10786-8">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10784-9" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10790-6">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10788-4" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <clipPath id="clipPath10794-3">
+      <use height="100%" width="100%" y="0" x="0" style="overflow:visible" id="use10792-3" overflow="visible" xlink:href="#SVGID_1_-3"/>
+    </clipPath>
+    <rect x="0" height="8.7469997" width="179.20599" y="23.478001" id="SVGID_1_-3"/>
+    <rect x="0" height="8.7469997" width="179.20599" y="23.478001" id="rect11797-6"/>
+    <linearGradient id="uuid-8ee4b625-7b10-49b1-9a6a-14787627d647" x1="22.5" y1="0" x2="22.5" y2="380" gradientUnits="userSpaceOnUse" gradientTransform="matrix(0.26458332,0,0,0.26458332,-32.146876,3.1749996)">
+      <stop offset="0" stop-color="#2a2a2b" id="stop1"/>
+      <stop offset="1" stop-color="#171717" id="stop2"/>
+    </linearGradient>
+  </defs>
+  <g inkscape:label="style_bg" inkscape:groupmode="layer" id="layer1" style="display:inline">
+    <rect width="15.239998" height="128.5" fill="url(#uuid-8ee4b625-7b10-49b1-9a6a-14787627d647)" id="rect2-6" x="1.7763568e-15" y="0" style="display:inline;fill:url(#uuid-8ee4b625-7b10-49b1-9a6a-14787627d647);stroke-width:0.338411" inkscape:label="bg"/>
+    <rect style="display:none;fill:#313131;fill-opacity:1;stroke:none;stroke-width:3.05129;stroke-linecap:square;paint-order:fill markers stroke" id="rect46" width="15.24" height="5.0799999" x="-1.323489e-23" y="123.42" inkscape:label="bottom_margin"/>
+    <rect style="display:none;fill:#313131;fill-opacity:1;stroke:none;stroke-width:3.05129;stroke-linecap:square;paint-order:fill markers stroke" id="rect47" width="15.24" height="5.0799999" x="-2.3841858e-07" y="0" inkscape:label="top_margin"/>
+    <path id="rect8" style="display:inline;fill:#b3b3b3;fill-opacity:1;stroke-width:0.217643;stroke-dashoffset:15.874;stroke-opacity:0.704061;paint-order:markers fill stroke" d="m 2.5398439,25.399803 v 2.539896 7.620207 c 0,1.407158 1.1327383,2.539897 2.5398967,2.539897 h 5.0803104 c 1.407159,0 2.539897,-1.132739 2.539897,-2.539897 V 27.939699 25.399803 H 10.160051 5.0797406 Z"/>
+    <path id="rect7" style="display:inline;fill:#3f3f3f;fill-opacity:1;stroke-width:0.217643;stroke-dashoffset:15.874;stroke-opacity:0.704061;paint-order:markers fill stroke" d="m 5.0797406,12.699803 c -1.4071601,0 -2.5398967,1.132736 -2.5398967,2.539896 v 7.620207 2.539897 h 2.5398967 5.0803104 2.539897 v -2.539897 -7.620207 c 0,-1.40716 -1.132737,-2.539896 -2.539897,-2.539896 z"/>
+    <path id="path10" style="display:inline;fill:#b3b3b3;fill-opacity:1;stroke-width:0.217643;stroke-dashoffset:15.874;stroke-opacity:0.704061;paint-order:markers fill stroke" d="m 2.5398434,53.3398 v 2.539896 7.620207 c 0,1.407158 1.1327383,2.539897 2.5398967,2.539897 h 5.0803109 c 1.407159,0 2.539897,-1.132739 2.539897,-2.539897 V 55.879696 53.3398 H 10.160051 5.0797401 Z"/>
+    <path id="path11" style="display:inline;fill:#3f3f3f;fill-opacity:1;stroke-width:0.217643;stroke-dashoffset:15.874;stroke-opacity:0.704061;paint-order:markers fill stroke" d="m 5.0797401,40.6398 c -1.4071601,0 -2.5398967,1.132736 -2.5398967,2.539896 v 7.620207 2.539897 h 2.5398967 5.0803109 2.539897 v -2.539897 -7.620207 c 0,-1.40716 -1.132737,-2.539896 -2.539897,-2.539896 z"/>
+    <path id="path13" style="display:inline;fill:#b3b3b3;fill-opacity:1;stroke-width:0.217643;stroke-dashoffset:15.874;stroke-opacity:0.704061;paint-order:markers fill stroke" d="m 2.5398431,81.279804 v 2.539896 7.620207 c 0,1.407158 1.1327383,2.539897 2.5398967,2.539897 h 5.0803112 c 1.407159,0 2.539897,-1.132739 2.539897,-2.539897 V 83.8197 81.279804 H 10.160051 5.0797398 Z"/>
+    <path id="path14" style="display:inline;fill:#3f3f3f;fill-opacity:1;stroke-width:0.217643;stroke-dashoffset:15.874;stroke-opacity:0.704061;paint-order:markers fill stroke" d="m 5.0797398,68.579804 c -1.4071601,0 -2.5398967,1.132736 -2.5398967,2.539896 v 7.620207 2.539897 h 2.5398967 5.0803112 2.539897 V 78.739907 71.1197 c 0,-1.40716 -1.132737,-2.539896 -2.539897,-2.539896 z"/>
+    <path id="path16" style="display:inline;fill:#b3b3b3;fill-opacity:1;stroke-width:0.217643;stroke-dashoffset:15.874;stroke-opacity:0.704061;paint-order:markers fill stroke" d="m 2.539895,109.2199 v 2.53989 7.62021 c 0,1.40716 1.1327383,2.5399 2.5398967,2.5399 h 5.0803113 c 1.407159,0 2.539897,-1.13274 2.539897,-2.5399 v -7.62021 -2.53989 H 10.160103 5.0797917 Z"/>
+    <path id="path17" style="display:inline;fill:#3f3f3f;fill-opacity:1;stroke-width:0.217643;stroke-dashoffset:15.874;stroke-opacity:0.704061;paint-order:markers fill stroke" d="m 5.0797917,96.5199 c -1.4071601,0 -2.5398967,1.132735 -2.5398967,2.539895 V 106.68 109.2199 H 5.0797917 10.160103 12.7 V 106.68 99.059795 c 0,-1.40716 -1.132737,-2.539895 -2.539897,-2.539895 z"/>
+  </g>
+  <g inkscape:groupmode="layer" id="layer2" inkscape:label="components" style="display:none" inkscape:highlight-color="#ffffff">
+    <ellipse style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;stroke-width:0.780635;stroke-linecap:square;paint-order:stroke fill markers" id="ellipse17" cx="7.6199999" cy="116.84" inkscape:label="D" inkscape:highlight-color="#0000ff" rx="3.75" ry="3.7500014"/>
+    <ellipse style="display:inline;fill:#00ff00;fill-opacity:1;stroke:none;stroke-width:0.780636;stroke-linecap:square;paint-order:stroke fill markers" id="ellipse18" cx="7.6199999" cy="104.13999" inkscape:label="D" inkscape:highlight-color="#00ff00" rx="3.75" ry="3.7500014"/>
+    <ellipse style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;stroke-width:0.780635;stroke-linecap:square;paint-order:stroke fill markers" id="ellipse14" cx="7.6199479" cy="88.899902" inkscape:label="C" inkscape:highlight-color="#0000ff" rx="3.75" ry="3.7500014"/>
+    <ellipse style="display:inline;fill:#00ff00;fill-opacity:1;stroke:none;stroke-width:0.780636;stroke-linecap:square;paint-order:stroke fill markers" id="ellipse15" cx="7.6199479" cy="76.199905" inkscape:label="C" inkscape:highlight-color="#00ff00" rx="3.75" ry="3.7500014"/>
+    <ellipse style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;stroke-width:0.780635;stroke-linecap:square;paint-order:stroke fill markers" id="ellipse11" cx="7.6199479" cy="60.959904" inkscape:label="B" inkscape:highlight-color="#0000ff" rx="3.75" ry="3.7500014"/>
+    <ellipse style="display:inline;fill:#00ff00;fill-opacity:1;stroke:none;stroke-width:0.780636;stroke-linecap:square;paint-order:stroke fill markers" id="ellipse12" cx="7.6199479" cy="48.259903" inkscape:label="B" inkscape:highlight-color="#00ff00" rx="3.75" ry="3.7500014"/>
+    <ellipse style="display:inline;fill:#0000ff;fill-opacity:1;stroke:none;stroke-width:0.780635;stroke-linecap:square;paint-order:stroke fill markers" id="ellipse5" cx="7.6199479" cy="33.019905" inkscape:label="A" inkscape:highlight-color="#0000ff" rx="3.75" ry="3.7500014"/>
+    <ellipse style="display:inline;fill:#00ff00;fill-opacity:1;stroke:none;stroke-width:0.780636;stroke-linecap:square;paint-order:stroke fill markers" id="ellipse6" cx="7.6199479" cy="20.319904" inkscape:label="A" inkscape:highlight-color="#00ff00" rx="3.75" ry="3.7500014"/>
+  </g>
+  <g inkscape:groupmode="layer" id="layer4" inkscape:label="text" inkscape:highlight-color="#ff0000" style="display:inline">
+    <path style="font-weight:500;font-size:2.5px;line-height:0;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro Medium';text-align:center;letter-spacing:0.0132292px;baseline-shift:baseline;text-anchor:middle;fill:#1a1a1a;stroke-width:1.05833;stroke-linecap:square;paint-order:stroke fill markers" d="m 6.3367177,27.939896 v -1.6375 h 0.4875 q 0.1675,0 0.295,0.04 0.13,0.0375 0.2025,0.125 0.075,0.0875 0.075,0.235 0,0.12 -0.07,0.22 -0.07,0.1 -0.215,0.1375 v 0.01 q 0.1775,0.0275 0.275,0.125 0.0975,0.0975 0.0975,0.265 0,0.1625 -0.08,0.27 -0.0775,0.105 -0.2175,0.1575 -0.14,0.0525 -0.3225,0.0525 z m 0.25,-0.9575 h 0.2075 q 0.19,0 0.2725,-0.0625 0.085,-0.065 0.085,-0.19 0,-0.1225 -0.0875,-0.1725 -0.0875,-0.05 -0.2625,-0.05 h -0.215 z m 0,0.7525 h 0.2475 q 0.195,0 0.3,-0.0675 0.105,-0.07 0.105,-0.2225 0,-0.14 -0.105,-0.2 -0.1025,-0.0625 -0.3,-0.0625 h -0.2475 z m 1.7982302,0.205 v -1.0225 h -0.5475 v -0.2 h 0.795 v 1.2225 z m 0.1025,-1.46 q -0.08,0 -0.1325,-0.0475 -0.0525,-0.05 -0.0525,-0.13 0,-0.08 0.0525,-0.1275 0.0525,-0.05 0.1325,-0.05 0.08,0 0.1325,0.05 0.0525,0.0475 0.0525,0.1275 0,0.08 -0.0525,0.13 -0.0525,0.0475 -0.1325,0.0475 z" id="text6" inkscape:highlight-color="#ff0000" inkscape:label="bi" aria-label="Bi"/>
+    <path style="font-weight:500;font-size:2.5px;line-height:0;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro Medium';text-align:center;letter-spacing:0.0132292px;baseline-shift:baseline;text-anchor:middle;fill:#ffffff;stroke-width:1.05833;stroke-linecap:square;paint-order:stroke fill markers" d="m 6.1026026,15.269894 q -0.1275,0 -0.2325,-0.0375 -0.1025,-0.0375 -0.1775,-0.115 -0.0725,-0.08 -0.115,-0.2025 -0.04,-0.125 -0.04,-0.2975 v -1.015 h 0.2525 v 1.03 q 0,0.15 0.04,0.2425 0.04,0.0925 0.11,0.135 0.07,0.0425 0.1625,0.0425 0.095,0 0.165,-0.0425 0.0725,-0.0425 0.1125,-0.135 0.04,-0.0925 0.04,-0.2425 v -1.03 h 0.2425 v 1.015 q 0,0.1725 -0.04,0.2975 -0.04,0.1225 -0.115,0.2025 -0.0725,0.0775 -0.175,0.115 -0.1025,0.0375 -0.23,0.0375 z m 0.9807302,-0.03 v -1.2225 h 0.2025 l 0.02,0.1975 h 0.01 q 0.0925,-0.095 0.2,-0.16 0.1075,-0.0675 0.25,-0.0675 0.2125,0 0.3125,0.13 0.1025,0.1275 0.1025,0.365 v 0.7575 h -0.2475 v -0.725 q 0,-0.16 -0.06,-0.235 -0.0575,-0.0775 -0.195,-0.0775 -0.0975,0 -0.175,0.05 -0.0775,0.0475 -0.1725,0.145 v 0.8425 z m 2.0582302,0 v -1.0225 h -0.5475 v -0.2 h 0.795 v 1.2225 z m 0.1025,-1.46 q -0.08,0 -0.1325,-0.0475 -0.0525,-0.05 -0.0525,-0.13 0,-0.08 0.0525,-0.1275 0.0525,-0.05 0.1325,-0.05 0.08,0 0.1325,0.05 0.0525,0.0475 0.0525,0.1275 0,0.08 -0.0525,0.13 -0.0525,0.0475 -0.1325,0.0475 z" id="text7" inkscape:highlight-color="#ff0000" inkscape:label="uni" aria-label="Uni"/>
+    <path style="font-weight:500;font-size:2.5px;line-height:0;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro Medium';text-align:center;letter-spacing:0.0132292px;baseline-shift:baseline;text-anchor:middle;fill:#1a1a1a;stroke-width:1.05833;stroke-linecap:square;paint-order:stroke fill markers" d="m 6.3367177,55.879894 v -1.6375 h 0.4875 q 0.1675,0 0.295,0.04 0.13,0.0375 0.2025,0.125 0.075,0.0875 0.075,0.235 0,0.12 -0.07,0.22 -0.07,0.1 -0.215,0.1375 v 0.01 q 0.1775,0.0275 0.275,0.125 0.0975,0.0975 0.0975,0.265 0,0.1625 -0.08,0.27 -0.0775,0.105 -0.2175,0.1575 -0.14,0.0525 -0.3225,0.0525 z m 0.25,-0.9575 h 0.2075 q 0.19,0 0.2725,-0.0625 0.085,-0.065 0.085,-0.19 0,-0.1225 -0.0875,-0.1725 -0.0875,-0.05 -0.2625,-0.05 h -0.215 z m 0,0.7525 h 0.2475 q 0.195,0 0.3,-0.0675 0.105,-0.07 0.105,-0.2225 0,-0.14 -0.105,-0.2 -0.1025,-0.0625 -0.3,-0.0625 h -0.2475 z m 1.7982302,0.205 v -1.0225 h -0.5475 v -0.2 h 0.795 v 1.2225 z m 0.1025,-1.46 q -0.08,0 -0.1325,-0.0475 -0.0525,-0.05 -0.0525,-0.13 0,-0.08 0.0525,-0.1275 0.0525,-0.05 0.1325,-0.05 0.08,0 0.1325,0.05 0.0525,0.0475 0.0525,0.1275 0,0.08 -0.0525,0.13 -0.0525,0.0475 -0.1325,0.0475 z" id="text12" inkscape:highlight-color="#ff0000" inkscape:label="bi" aria-label="Bi"/>
+    <path style="font-weight:500;font-size:2.5px;line-height:0;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro Medium';text-align:center;letter-spacing:0.0132292px;baseline-shift:baseline;text-anchor:middle;fill:#ffffff;stroke-width:1.05833;stroke-linecap:square;paint-order:stroke fill markers" d="m 6.1026026,43.209893 q -0.1275,0 -0.2325,-0.0375 -0.1025,-0.0375 -0.1775,-0.115 -0.0725,-0.08 -0.115,-0.2025 -0.04,-0.125 -0.04,-0.2975 v -1.015 h 0.2525 v 1.03 q 0,0.15 0.04,0.2425 0.04,0.0925 0.11,0.135 0.07,0.0425 0.1625,0.0425 0.095,0 0.165,-0.0425 0.0725,-0.0425 0.1125,-0.135 0.04,-0.0925 0.04,-0.2425 v -1.03 h 0.2425 v 1.015 q 0,0.1725 -0.04,0.2975 -0.04,0.1225 -0.115,0.2025 -0.0725,0.0775 -0.175,0.115 -0.1025,0.0375 -0.23,0.0375 z m 0.9807302,-0.03 v -1.2225 h 0.2025 l 0.02,0.1975 h 0.01 q 0.0925,-0.095 0.2,-0.16 0.1075,-0.0675 0.25,-0.0675 0.2125,0 0.3125,0.13 0.1025,0.1275 0.1025,0.365 v 0.7575 h -0.2475 v -0.725 q 0,-0.16 -0.06,-0.235 -0.0575,-0.0775 -0.195,-0.0775 -0.0975,0 -0.175,0.05 -0.0775,0.0475 -0.1725,0.145 v 0.8425 z m 2.0582302,0 v -1.0225 h -0.5475 v -0.2 h 0.795 v 1.2225 z m 0.1025,-1.46 q -0.08,0 -0.1325,-0.0475 -0.0525,-0.05 -0.0525,-0.13 0,-0.08 0.0525,-0.1275 0.0525,-0.05 0.1325,-0.05 0.08,0 0.1325,0.05 0.0525,0.0475 0.0525,0.1275 0,0.08 -0.0525,0.13 -0.0525,0.0475 -0.1325,0.0475 z" id="text13" inkscape:highlight-color="#ff0000" inkscape:label="uni" aria-label="Uni"/>
+    <path style="font-weight:500;font-size:2.5px;line-height:0;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro Medium';text-align:center;letter-spacing:0.0132292px;baseline-shift:baseline;text-anchor:middle;fill:#1a1a1a;stroke-width:1.05833;stroke-linecap:square;paint-order:stroke fill markers" d="m 6.1026026,83.849893 q -0.1275,0 -0.2325,-0.0375 -0.1025,-0.0375 -0.1775,-0.115 -0.0725,-0.08 -0.115,-0.2025 -0.04,-0.125 -0.04,-0.2975 v -1.015 h 0.2525 v 1.03 q 0,0.15 0.04,0.2425 0.04,0.0925 0.11,0.135 0.07,0.0425 0.1625,0.0425 0.095,0 0.165,-0.0425 0.0725,-0.0425 0.1125,-0.135 0.04,-0.0925 0.04,-0.2425 v -1.03 h 0.2425 v 1.015 q 0,0.1725 -0.04,0.2975 -0.04,0.1225 -0.115,0.2025 -0.0725,0.0775 -0.175,0.115 -0.1025,0.0375 -0.23,0.0375 z m 0.9807302,-0.03 v -1.2225 h 0.2025 l 0.02,0.1975 h 0.01 q 0.0925,-0.095 0.2,-0.16 0.1075,-0.0675 0.25,-0.0675 0.2125,0 0.3125,0.13 0.1025,0.1275 0.1025,0.365 v 0.7575 h -0.2475 v -0.725 q 0,-0.16 -0.06,-0.235 -0.0575,-0.0775 -0.195,-0.0775 -0.0975,0 -0.175,0.05 -0.0775,0.0475 -0.1725,0.145 v 0.8425 z m 2.0582302,0 v -1.0225 h -0.5475 v -0.2 h 0.795 v 1.2225 z m 0.1025,-1.46 q -0.08,0 -0.1325,-0.0475 -0.0525,-0.05 -0.0525,-0.13 0,-0.08 0.0525,-0.1275 0.0525,-0.05 0.1325,-0.05 0.08,0 0.1325,0.05 0.0525,0.0475 0.0525,0.1275 0,0.08 -0.0525,0.13 -0.0525,0.0475 -0.1325,0.0475 z" id="text15" inkscape:highlight-color="#ff0000" inkscape:label="bi" aria-label="Uni"/>
+    <path style="font-weight:500;font-size:2.5px;line-height:0;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro Medium';text-align:center;letter-spacing:0.0132292px;baseline-shift:baseline;text-anchor:middle;fill:#ffffff;stroke-width:1.05833;stroke-linecap:square;paint-order:stroke fill markers" d="m 6.3301031,71.119896 v -1.6375 h 0.4875 q 0.1675,0 0.295,0.04 0.13,0.0375 0.2025,0.125 0.075,0.0875 0.075,0.235 0,0.12 -0.07,0.22 -0.07,0.1 -0.215,0.1375 v 0.01 q 0.1775,0.0275 0.275,0.125 0.0975,0.0975 0.0975,0.265 0,0.1625 -0.08,0.27 -0.0775,0.105 -0.2175,0.1575 -0.14,0.0525 -0.3225,0.0525 z m 0.25,-0.9575 h 0.2075 q 0.19,0 0.2725,-0.0625 0.085,-0.065 0.085,-0.19 0,-0.1225 -0.0875,-0.1725 -0.0875,-0.05 -0.2625,-0.05 h -0.215 z m 0,0.7525 h 0.2475 q 0.195,0 0.3,-0.0675 0.105,-0.07 0.105,-0.2225 0,-0.14 -0.105,-0.2 -0.1025,-0.0625 -0.3,-0.0625 h -0.2475 z m 1.7982302,0.205 v -1.0225 h -0.5475 v -0.2 h 0.795 v 1.2225 z m 0.1025,-1.46 q -0.08,0 -0.1325,-0.0475 -0.0525,-0.05 -0.0525,-0.13 0,-0.08 0.0525,-0.1275 0.0525,-0.05 0.1325,-0.05 0.08,0 0.1325,0.05 0.0525,0.0475 0.0525,0.1275 0,0.08 -0.0525,0.13 -0.0525,0.0475 -0.1325,0.0475 z" id="text16" inkscape:highlight-color="#ff0000" inkscape:label="uni" aria-label="Bi&#10;"/>
+    <path style="font-weight:500;font-size:2.5px;line-height:0;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro Medium';text-align:center;letter-spacing:0.0132292px;baseline-shift:baseline;text-anchor:middle;fill:#1a1a1a;stroke-width:1.05833;stroke-linecap:square;paint-order:stroke fill markers" d="m 6.1026546,111.78999 q -0.1275,0 -0.2325,-0.0375 -0.1025,-0.0375 -0.1775,-0.115 -0.0725,-0.08 -0.115,-0.2025 -0.04,-0.125 -0.04,-0.2975 v -1.015 h 0.2525 v 1.03 q 0,0.15 0.04,0.2425 0.04,0.0925 0.11,0.135 0.07,0.0425 0.1625,0.0425 0.095,0 0.165,-0.0425 0.0725,-0.0425 0.1125,-0.135 0.04,-0.0925 0.04,-0.2425 v -1.03 h 0.2425 v 1.015 q 0,0.1725 -0.04,0.2975 -0.04,0.1225 -0.115,0.2025 -0.0725,0.0775 -0.175,0.115 -0.1025,0.0375 -0.23,0.0375 z m 0.9807302,-0.03 v -1.2225 h 0.2025 l 0.02,0.1975 h 0.01 q 0.0925,-0.095 0.2,-0.16 0.1075,-0.0675 0.25,-0.0675 0.2125,0 0.3125,0.13 0.1025,0.1275 0.1025,0.365 v 0.7575 h -0.2475 v -0.725 q 0,-0.16 -0.06,-0.235 -0.0575,-0.0775 -0.195,-0.0775 -0.0975,0 -0.175,0.05 -0.0775,0.0475 -0.1725,0.145 v 0.8425 z m 2.0582302,0 v -1.0225 h -0.5475 v -0.2 h 0.795 v 1.2225 z m 0.1025,-1.46 q -0.08,0 -0.1325,-0.0475 -0.0525,-0.05 -0.0525,-0.13 0,-0.08 0.0525,-0.1275 0.0525,-0.05 0.1325,-0.05 0.08,0 0.1325,0.05 0.0525,0.0475 0.0525,0.1275 0,0.08 -0.0525,0.13 -0.0525,0.0475 -0.1325,0.0475 z" id="text18" inkscape:highlight-color="#ff0000" inkscape:label="bi" aria-label="Uni"/>
+    <path style="font-weight:500;font-size:2.5px;line-height:0;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro Medium';text-align:center;letter-spacing:0.0132292px;baseline-shift:baseline;text-anchor:middle;fill:#ffffff;stroke-width:1.05833;stroke-linecap:square;paint-order:stroke fill markers" d="m 6.3367696,99.05999 v -1.6375 h 0.4875 q 0.1675,0 0.295,0.04 0.13,0.0375 0.2025,0.125 0.075,0.0875 0.075,0.235 0,0.12 -0.07,0.22 -0.07,0.1 -0.215,0.1375 v 0.01 q 0.1775,0.0275 0.275,0.125 0.0975,0.0975 0.0975,0.265 0,0.1625 -0.08,0.27 -0.0775,0.105 -0.2175,0.1575 -0.14,0.0525 -0.3225,0.0525 z m 0.25,-0.9575 h 0.2075 q 0.19,0 0.2725,-0.0625 0.085,-0.065 0.085,-0.19 0,-0.1225 -0.0875,-0.1725 -0.0875,-0.05 -0.2625,-0.05 h -0.215 z m 0,0.7525 h 0.2475 q 0.195,0 0.3,-0.0675 0.105,-0.07 0.105,-0.2225 0,-0.14 -0.105,-0.2 -0.1025,-0.0625 -0.3,-0.0625 h -0.2475 z m 1.7982303,0.205 v -1.0225 h -0.5475 v -0.2 h 0.795 v 1.2225 z m 0.1025,-1.46 q -0.08,0 -0.1325,-0.0475 -0.0525,-0.05 -0.0525,-0.13 0,-0.08 0.0525,-0.1275 0.0525,-0.05 0.1325,-0.05 0.08,0 0.1325,0.05 0.0525,0.0475 0.0525,0.1275 0,0.08 -0.0525,0.13 -0.0525,0.0475 -0.1325,0.0475 z" id="text19" inkscape:highlight-color="#ff0000" inkscape:label="uni" aria-label="Bi"/>
+    <path style="font-weight:bold;font-size:4px;line-height:0;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro Bold';text-align:center;letter-spacing:0.0132292px;baseline-shift:baseline;text-anchor:middle;fill:#ffffff;stroke-width:1.05833;stroke-linecap:square;paint-order:stroke fill markers" d="m 23.044652,9.849 0.812,-2.608 h 0.704 l 0.812,2.608 h -0.624 l -0.336,-1.32 q -0.048,-0.196 -0.104,-0.416 -0.056,-0.22 -0.104,-0.424 h -0.016 q -0.048,0.204 -0.1,0.424 -0.052,0.22 -0.104,0.416 l -0.34,1.32 z m 0.536,-0.62 v -0.46 h 1.248 v 0.46 z m 2.121231,0.62 V 7.241 h 0.72 q 0.38,0 0.66,0.136 0.284,0.136 0.44,0.424 0.156,0.284 0.156,0.732 0,0.448 -0.156,0.74 -0.152,0.292 -0.428,0.436 -0.276,0.14 -0.636,0.14 z m 0.592,-0.476 h 0.096 q 0.208,0 0.36,-0.08 0.152,-0.08 0.236,-0.264 0.088,-0.184 0.088,-0.496 0,-0.312 -0.088,-0.488 -0.084,-0.18 -0.236,-0.252 -0.152,-0.076 -0.36,-0.076 h -0.096 z m 1.57723,0.476 0.812,-2.608 h 0.704 l 0.812,2.608 h -0.624 l -0.336,-1.32 q -0.048,-0.196 -0.104,-0.416 -0.056,-0.22 -0.104,-0.424 h -0.016 q -0.048,0.204 -0.1,0.424 -0.052,0.22 -0.104,0.416 l -0.34,1.32 z m 0.536,-0.62 v -0.46 h 1.248 v 0.46 z m 2.141231,0.62 V 7.241 h 0.924 q 0.284,0 0.512,0.08 0.232,0.076 0.368,0.26 0.14,0.184 0.14,0.5 0,0.304 -0.14,0.5 -0.14,0.196 -0.372,0.292 -0.232,0.092 -0.508,0.092 h -0.336 v 0.884 z m 0.588,-1.352 h 0.3 q 0.244,0 0.36,-0.108 0.12,-0.108 0.12,-0.308 0,-0.208 -0.124,-0.288 -0.12,-0.084 -0.356,-0.084 h -0.3 z m 2.429231,1.352 V 7.737 h -0.78 V 7.241 h 2.152 v 0.496 h -0.78 v 2.112 z" id="text13-3" inkscape:label="TITLE" transform="translate(-21.450114,-0.99699998)" aria-label="ADAPT"/>
+  </g>
+</svg>

@@ -11,3 +11,8 @@ extern Model* modelPhasor;
 extern Model* modelPhase_wt;
 extern Model* modelPhase_dist;
 extern Model* modelFract;
+extern Model* modelCompar;
+extern Model* modelNum2bits;
+extern Model* modelXy;
+extern Model* modelAdapt;
+extern Model* modelMixvca;

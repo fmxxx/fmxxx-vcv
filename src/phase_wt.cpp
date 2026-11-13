@@ -42,7 +42,7 @@ struct Phase_wt : Module {
     configParam(WAVESIZE_PARAM, 4.f, 12.f, 8.f, "Wave Size", " samples", 2.f);
 
     configSwitch(PD_TYPE_PARAM, 0.f, 10.f, 0.f, "Distortion Type",
-                 {"Horizontal Skew", "Bend", "Pinch", "RampTri", "RampRev", "Mirror", "Mute", "Formant", "Power2", "Aliased Quantize", "Bypass"});
+                 {"Horizontal Skew", "Bend", "Pinch", "RampTri", "RampRev", "Mirror", "Mute", "Formant", "Power2", "Aliased Quantize", "Cubic Pulse"});
     configSwitch(DO_MORPH_PARAM, 0.f, 1.f, 1.f, "Morph", {"OFF", "ON"});
     configSwitch(LFOVCO_PARAM, 0.f, 1.f, 1.f, "Mode", {"LFO (No anti-aliasing)", "VCO (Anti-aliased)"});
 
@@ -86,7 +86,7 @@ struct Phase_wt : Module {
       formant,
       powr2,
       aliasQuantize,
-      passthrough,
+      cubicPulse,
   };
 
   enum class PDist { HorSkew,
@@ -99,7 +99,7 @@ struct Phase_wt : Module {
                      Formant,
                      Power2,
                      Quantize,
-                     Bypass };
+                     CubicPulse };
 
   PDistFn currentPD = hSkew;
 
@@ -140,6 +140,8 @@ struct Phase_wt : Module {
       channels = std::max(inputs[WTPOS_INPUT].getChannels(), channels);
       channels = std::max(inputs[PD_INPUT].getChannels(), channels);
       channels = std::max(1, channels);
+
+      outputs[PHASE_OUTPUT].setChannels(channels);
       outputs[AUDIO_OUTPUT].setChannels(channels);
 
       // Control Rate
@@ -180,13 +182,14 @@ struct Phase_wtWidget : ModuleWidget {
     addChild(createWidget<ScrewBlack>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
     addChild(createWidget<ScrewBlack>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 
-    addParam(createParamCentered<RoundBlackKnob>(mm2px(Vec(7.62, 35.56)), module, Phase_wt::WTPOS_PARAM));
-    addParam(createParamCentered<RoundBlackKnob>(mm2px(Vec(22.86, 35.56)), module, Phase_wt::PD_PARAM));
-    addParam(createParamCentered<RoundBlackKnob>(mm2px(Vec(7.62, 50.8)), module, Phase_wt::WAVESIZE_PARAM));
-    addParam(createParamCentered<RoundBlackKnob>(mm2px(Vec(22.86, 50.8)), module, Phase_wt::PD_TYPE_PARAM));
+    addParam(createParamCentered<RoundBlackKnob>(mm2px(Vec(7.62, 40.64)), module, Phase_wt::WTPOS_PARAM));
+    addParam(createParamCentered<RoundBlackKnob>(mm2px(Vec(22.86, 40.64)), module, Phase_wt::PD_PARAM));
 
-    addParam(createParamCentered<CKSS>(mm2px(Vec(7.62, 66.04)), module, Phase_wt::DO_MORPH_PARAM));
-    addParam(createParamCentered<CKSS>(mm2px(Vec(22.86, 66.04)), module, Phase_wt::LFOVCO_PARAM));
+    addParam(createParamCentered<RoundSmallBlackKnob>(mm2px(Vec(7.62, 54.61)), module, Phase_wt::WAVESIZE_PARAM));
+    addParam(createParamCentered<RoundSmallBlackKnob>(mm2px(Vec(22.86, 54.61)), module, Phase_wt::PD_TYPE_PARAM));
+
+    addParam(createParamCentered<CKSS>(mm2px(Vec(7.62, 67.31)), module, Phase_wt::DO_MORPH_PARAM));
+    addParam(createParamCentered<CKSS>(mm2px(Vec(22.86, 67.31)), module, Phase_wt::LFOVCO_PARAM));
 
     addParam(createParamCentered<Trimpot>(mm2px(Vec(7.634, 78.73)), module, Phase_wt::WTPOS_CV_AMT_PARAM));
     addParam(createParamCentered<Trimpot>(mm2px(Vec(22.86, 78.74)), module, Phase_wt::PD_CV_AMT_PARAM));
